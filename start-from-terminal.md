@@ -282,10 +282,8 @@ brew install --cask font-sauce-code-pro-nerd-font
 现在，再安装 Terminal 的 [Powerlevel10K Theme](https://github.com/romkatv/powerlevel10k) for zsh：
 
 ```bash
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# 中国大陆用户没有 VPN 的情况下，可以用 gitee.com 上的镜像
-# git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+brew install romkatv/powerlevel10k/powerlevel10k
+echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 ```
 
 为了随后的方便，再安装一个文本编辑器（免费，但也可以缴费注册）
@@ -302,10 +300,10 @@ brew install sublime-text
 subl ~/.zshrc
 ```
 
-在 `~/.zshrc` 这个文件里，已经有很多内容（都是之前安装 Oh-My-Zsh）的时候生成的。在里面找到有 `ZSH_THEME=...` 的哪一行，将它改成：
+在 `~/.zshrc` 这个文件里，已经有很多内容（都是之前安装 Oh-My-Zsh）的时候生成的。在里面找到有 `ZSH_THEME="robbyrussell"` 的那一行，将它改成：
 
 ```bash
-ZSH_THEME="powerlevel10k/powerlevel10k
+ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
 ![](images/subl-zshrc.png)
