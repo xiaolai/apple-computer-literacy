@@ -48,14 +48,6 @@ xcode-select --install
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-这个脚本程序完成之后，需要再执行一条命令：
-
-```bash
-echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> $HOME/.zprofile
-```
-
-然后，重新启动 Terminal 程序（就是退出之后，重新打开）。再打开的 Terminal 的提示符会看起来有所不同
-
 ![](images/terminal-after-ohmyzsh.png)
 
 等一会儿安装好 Homebrew 之后，我们还可以进一步美化一下 Terminal 以及命令行提示符……
