@@ -316,7 +316,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 p10k configure
 ```
 
-按照提示一步一步选择即可。可以多试几次，不满意，就重新设置一遍。
+按照提示一步一步选择即可。可以多试几次，不满意，就重新设置一遍。如果实在不知道该怎么办，参照[我的选择](p10k-configure.md)。
 
 另外，我比较喜欢 [SpaceGray](https://github.com/wtanna/Spacegray-OSX-Terminal-Theme) 这个 Terminal Theme。（事实上，你可以在网上找到很多 Terminal Theme for Mac OSX……）
 
