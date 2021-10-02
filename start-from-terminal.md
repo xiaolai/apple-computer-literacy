@@ -275,8 +275,15 @@ brew install --cask font-sauce-code-pro-nerd-font
 
 ```bash
 brew install romkatv/powerlevel10k/powerlevel10k
-echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 ```
+
+安装完毕之后，有一段提示
+
+> To activate powerlevel10k, add the following line to .zshrc:
+>
+>  source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+>
+> If your .zshrc sets ZSH_THEME, remove that line.
 
 为了随后的方便，再安装一个文本编辑器（免费，但也可以缴费注册）
 
