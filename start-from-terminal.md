@@ -16,7 +16,7 @@
 
 > * 先点击 Dock 上的 Launchpad 图标 <img height="20" width="20" src="https://help.apple.com/assets/5FDD15EE12A93C067904695E/5FDD15F412A93C0679046966/en_US/a1f94c9ca0de21571b88a8bf9aef36b8.png" /> ，而后在搜索框里输入 `Terminal`，随后通过点击打开。
 > * 在 Finder <img height="20" width="20" src="https://help.apple.com/assets/5FDD15EE12A93C067904695E/5FDD15F412A93C0679046966/en_US/058e4af8e726290f491044219d2eee73.png" /> 程序里  ，打开 `/Applications/Utilities` 文件夹，双击里面的 Terminal 程序图标。
-> * 使用快捷键 `⌘ + Space` 呼出 Spotlight，输入 `Terminal` 而后按 `⏎` 键，即，Return 键。
+> * 使用快捷键 `⌘ Space` 呼出 Spotlight，输入 `Terminal` 而后按 `⏎` 键，即，Return 键。
 
 在 Spotlight 里输入 `ter` 这三个字母的时候，Terminal 已经排在第一位了，这时按下  `⏎` 键，即，Return 键，就可以打开 Terminal 程序。
 
@@ -83,6 +83,8 @@ Homebrew 官方的代码仓库保存在 [GitHub](http://github.com/) 上，在�
 /bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
 ```
 
+> 注意：拷贝粘贴代码的时候，第一行包括进去了也没问题。`#` 这个字符是用来标注注释的，shell 会自动忽略当前行中 `#` 后面的所有内容。
+
 第一步选择镜像。我在北京，所以，就输入了 `2`，即，选择了清华大学下载源；随后，输入 `y`  确认开始执行脚本；之后会要求输入 password…… 这个 password 就是你的「开屏密码」（就是打开电脑，或者待机之后重新开机，需要登录的时候，所需要输入的那个密码）—— 在输入密码的时候，你在 Terminal 里看不到之前在图形界面中你所熟悉的对应的星号 `*****`，正确输入之后，按 `⏎` 键即可。如果输入错误，那就多按几次 `delete` 键，确保彻底删除所有已输入字符，重新输入即可。
 
 ![](images/brew-install-password.png)
@@ -92,6 +94,8 @@ Homebrew 官方的代码仓库保存在 [GitHub](http://github.com/) 上，在�
 ```bash
 exec zsh
 ```
+
+如果报错（`brew not found`），就退出 Terminal，重新启动它。
 
 而后，可以用以下命令验证 Homebrew 的安装：
 
@@ -112,6 +116,7 @@ brew upgrade
 brew search
 brew info
 brew cleanup
+brew config
 ```
 
 ## 5. VPN Clients
@@ -126,7 +131,9 @@ brew install surge
 
 使用 `brew` 命令安装的第三方程序，在系统默认的情况下，会触发警告，比如这样的：
 
-![](images/system-security-warning.png)需要于是，需要你在 System Preferences 里设置一下，在 `Allow apps downloaded from:` 之下，选择 `App Store and identified developers` ，然后，按那个 `Allow Anywa` 按钮：
+![](images/system-security-warning.png)
+
+于是，需要你在 System Preferences 里设置一下，在 `Allow apps downloaded from:` 之下，选择 `App Store and identified developers` ，然后，按那个 `Allow Anywa` 按钮：
 
 <img width="780" alt="secuity" src="https://user-images.githubusercontent.com/152970/135500504-6303509f-9f4a-4b1e-8ba8-2a761d7bade1.png">
 
@@ -148,6 +155,113 @@ brew update
 brew doctor
 ```
 
+若是看到警告信息，
+
+```bash
+Warning: A newer Command Line Tools release is available.
+Update them from Software Update in System Preferences or run:
+	softwareupdate --all --install --force
+```
+
+那么，就执行一遍 `softwareupdate --all --install --force` 好了……
+
+如果将来需要切换到国内的源，那么得按照以下方法操作（第一遍操作的时候，请直接跳到下一节开始阅读）：
+
+**替换为阿里源**
+
+```bash
+# 查看 brew.git 当前源
+$ cd "$(brew --repo)" && git remote -v
+origin    https://github.com/Homebrew/brew.git (fetch)
+origin    https://github.com/Homebrew/brew.git (push)
+
+# 查看 homebrew-core.git 当前源
+$ cd "$(brew --repo homebrew/core)" && git remote -v
+origin    https://github.com/Homebrew/homebrew-core.git (fetch)
+origin    https://github.com/Homebrew/homebrew-core.git (push)
+
+# 修改 brew.git 为阿里源
+$ git -C "$(brew --repo)" remote set-url origin https://mirrors.aliyun.com/homebrew/brew.git
+
+# 修改 homebrew-core.git 为阿里源
+$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git
+
+# zsh 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles' >> ~/.zshrc
+$ source ~/.zshrc
+
+# bash 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles' >> ~/.bash_profile
+$ source ~/.bash_profile
+
+# 刷新源
+$ brew update
+```
+
+**替换为清华源**
+
+```bash
+# 替换各个源
+$ git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+$ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+
+# zsh 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' >> ~/.zshrc
+$ source ~/.zshrc
+
+# bash 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' >> ~/.bash_profile
+$ source ~/.bash_profile
+
+# 刷新源
+$ brew update
+```
+
+**替换为中科大源**
+
+```bash
+# 替换各个源
+$ git -C "$(brew --repo)" remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+$ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+
+# zsh 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.zshrc
+$ source ~/.zshrc
+
+# bash 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.bash_profile
+$ source ~/.bash_profile
+
+# 刷新源
+$ brew update
+```
+
+**重置为官方源**
+
+```bash
+# 重置 brew.git 为官方源
+$ git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew.git
+
+# 重置 homebrew-core.git 为官方源
+$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://github.com/Homebrew/homebrew-core.git
+
+# 重置 homebrew-cask.git 为官方源
+$ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://github.com/Homebrew/homebrew-cask
+
+# zsh 注释掉 HOMEBREW_BOTTLE_DOMAIN 配置
+$ vi ~/.zshrc
+# export HOMEBREW_BOTTLE_DOMAIN=xxxxxxxxx
+
+# bash 注释掉 HOMEBREW_BOTTLE_DOMAIN 配置
+$ vi ~/.bash_profile
+# export HOMEBREW_BOTTLE_DOMAIN=xxxxxxxxx
+
+# 刷新源
+$ brew update
+```
+
 ## 7. Terminal (2)
 
 现在，可以「装修」一下 Terminal 了。
@@ -159,7 +273,7 @@ brew tap homebrew/cask-fonts
 brew install --cask font-sauce-code-pro-nerd-font
 ```
 
-设置 Terminal 的字体（目前使用的 Profile 是 Basic）—— 在 Terminal 处于当前焦点的情况下，按快捷键 `⌘ + ,` 呼出 Terminal 的 Preferences 窗口，而后，在 Profiles 标签里，点击左边栏的 `Basic`，而后，在右侧 `Text` 标签页里设置 `Font`
+设置 Terminal 的字体（目前使用的 Profile 是 Basic）—— 在 Terminal 处于当前焦点的情况下，按快捷键 `⌘ ,` 呼出 Terminal 的 Preferences 窗口，而后，在 Profiles 标签里，点击左边栏的 `Basic`，而后，在右侧 `Text` 标签页里设置 `Font`
 
 ![](images/terminal-preference-profile-Basic.png)
 
@@ -224,7 +338,7 @@ curl https://raw.githubusercontent.com/wtanna/Spacegray-OSX-Terminal-Theme/maste
 open spacegray.terminal
 ```
 
-然后，一个新的 Terminal 窗口会被打开。接着用快捷键 `⌘ + ,`，呼出 Preferences 窗口，而后，在 Profiles 标签里，点击左边栏的 `SpaceGray`，而后，在右侧 `Text` 标签页里设置 `Font`，`Windows` 标签里设置窗口大小…… 而后，再将 `SpaceGray` 设置为 `Default`。
+然后，一个新的 Terminal 窗口会被打开。接着用快捷键 `⌘ ,`（即，同时按下**Command 键**和**逗号键**的组合），呼出 Preferences 窗口，而后，在 Profiles 标签里，点击左边栏的 `SpaceGray`，而后，在右侧 `Text` 标签页里设置 `Font`，`Windows` 标签里设置窗口大小…… 而后，再将 `SpaceGray` 设置为 `Default`。
 
 设置完之后，可以把刚才下载的 `spacegray.terminal` 文件删掉：
 
@@ -253,6 +367,8 @@ scutil --set HostName "Macbook-Air-M1"
 
 第三方的程序，绝大多数都可以通过 `brew` 命令下载、安装、升级（我自己用的程序里，目前只有 Mixin Desktop 不能通过 `brew` 命令安装）—— 甚至，用 `brew` 命令还能安装一个 `mas` 用来管理 App Store 里的程序…… 而后，我可以用一行命令升级所有程序 `brew update && brew upgrade && mas upgrade` —— 当然，这条命令，你得等会儿才可以使用。
 
+注意，在使用 `brew install` 之前，最好卸载已经安装的软件，否则，系统会提醒你使用 `brew reinstall` 命令。于是，最好先 `brew install appcleaner`，用 AppCleaner 软件，卸载（它能把应用程序之外留下的各种文件一并删掉）
+
 ### 8.1 基本 Shell 工具
 
 ```bash
@@ -273,8 +389,8 @@ brew install cleanmymac	# 系统维护工具，功能比 onyx 多一点点，收
 ### 8.3 系统增强工具
 
 ```bash
-brew install bettertouchtool	# 定制各种快捷操作，也能做窗口管理
-brew install alfred	# 定制各种工具流，还包括一个剪贴板增强工具
+brew install bettertouchtool	# 定制各种快捷操作，也能做窗口管理，收费软件
+brew install alfred	# 定制各种工具流，还包括一个剪贴板增强工具，收费软件
 brew install blackhole-64	# 系统音频软导流工具，用 OBS 做直播播放音乐时需要
 ```
 
@@ -308,7 +424,7 @@ brew install surge	# 收费的代理服务器客户端，还可以单独装在�
 
 事实上，很多在 App Store 里能下载的软件，`brew` 里面也有，比如 Wechat 桌面版，比如微软的 Remote Desktop…… 只要是能用 `brew` 下载安装的，就全都用 `brew` —— 无非是在安装之前，先去用 `brew search <softwarename>` 搜索一下，看看能不能找到；找到之后，再用 `brew info <software name>` 确认一下……
 
-```
+```bash
 brew install android-studio	# 安卓模拟器，我用它在 MacOS 使用 Kindle 听读有声书
 brew install audacity	# 音频编辑器
 brew install baidunetdisk	# 百度网盘
