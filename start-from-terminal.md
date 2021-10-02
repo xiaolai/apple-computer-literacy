@@ -308,7 +308,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 ![](images/subl-zshrc.png)
 
-而后重新启动 Terminal，执行以下命令，以配置 Powerlevel10K：
+而后，在按 `⌘ s` 保存之后，退出 SublimeText。
+
+然后重新启动 Terminal，执行以下命令，以配置 Powerlevel10K：
 
 ```bash
 p10k configure
