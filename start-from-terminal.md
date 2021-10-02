@@ -1,5 +1,7 @@
 # 从 Terminal 开始……
 
+注：我现在用的是基于 Apple Silicon 芯片的 Mac，Homebrew 的安装目录，在基于 Intel Chip 的 Mac 上可能有所不同。Homebrew 的根目录到底是什么，可以用 `echo $(brew --prefix) ` 查看。
+
 ## 0. Language
 
 系统语言要设置成英文。这样的好处在于，将来你遇到任何问题的时候，出错信息里里外外全都是英文的，于是，就可以直接拷贝粘贴到 Google 里搜索解决方案。不然的话，各种名称都可能因为是中文的而找不到太好的解决方案…… 另外，Region 也干脆设置成 `United States` 算了，因为将来可能还需要用海外账号使用 TV App，和 News App……
@@ -363,4 +365,22 @@ mas install 497799835 	## Xcode
 ```
 
 如此这般之后，我就可以用 `brew update && brew upgrade && mas upgrade` 这一行命令升级电脑里的所有软件了……
+
+## 9. Massed up
+
+在整个操作过程中，有可能「不小心搞乱了」，那就重来一遍，无所谓的。卸载 Homebrew 的脚本如下 —— 至于两个脚本里用哪个，要看你正在使用的是哪个源：
+
+```bash
+# 使用官方源
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+
+# 使用国内镜像
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/HomebrewUninstall.sh)"
+```
+
+然后再在 Terminal 里删除整个 Homebrew 的目录：
+
+```
+sudo rm -rf /opt/Homebrew
+```
 
