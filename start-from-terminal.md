@@ -285,7 +285,7 @@ brew install romkatv/powerlevel10k/powerlevel10k
 >
 > If your .zshrc sets ZSH_THEME, remove that line.
 
-为了随后的方便，再安装一个文本编辑器（免费，但也可以缴费注册）
+为了能很方便滴编辑 `.zshrc` 文件，我们再安装一个文本编辑器（免费，但也可以缴费注册）
 
 ```bash
 brew install sublime-text
@@ -299,23 +299,21 @@ brew install sublime-text
 subl ~/.zshrc
 ```
 
-在 `~/.zshrc` 这个文件里，已经有很多内容（都是之前安装 Oh-My-Zsh）的时候生成的。在里面找到有 `ZSH_THEME="robbyrussell"` 的那一行，将它改成：
+在 `~/.zshrc` 这个文件里，已经有很多内容（都是之前安装 Oh-My-Zsh）的时候生成的。在里面找到有 `ZSH_THEME="robbyrussell"` 的那一行，在这一行开头加上以一个 `#`（在这个设置文件里，`#` 是注释符号，一行内 `#` 之后的部分会被忽略掉）：
 
 ```bash
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="robbyrussell"
 ```
 
 ![](images/subl-zshrc.png)
 
 而后，在按 `⌘ s` 保存之后，退出 SublimeText。
 
-然后重新启动 Terminal，执行以下命令，以配置 Powerlevel10K：
+然后重新启动 Terminal，执行以下命令，Powerlevel10K 的配置脚本会自动开始。按照提示一步一步选择即可。可以多试几次，不满意，就重新设置一遍。如果实在不知道该怎么办，参照[我的选择](p10k-configure.md)。以后想要重新设置 Powerlevel10K 的话，就用以下命令：
 
 ```bash
 p10k configure
 ```
-
-按照提示一步一步选择即可。可以多试几次，不满意，就重新设置一遍。如果实在不知道该怎么办，参照[我的选择](p10k-configure.md)。
 
 另外，我比较喜欢 [SpaceGray](https://github.com/wtanna/Spacegray-OSX-Terminal-Theme) 这个 Terminal Theme。（事实上，你可以在网上找到很多 Terminal Theme for Mac OSX……）
 
