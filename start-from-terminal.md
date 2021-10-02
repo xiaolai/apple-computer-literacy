@@ -8,7 +8,7 @@
 
 ![](images/system-preference-language.png)
 
-## 1. Terminal
+## 1. Terminal (1)
 
 打开一个新的 Mac（iMac、Macbook 等等），即便你是新手，要第一个使用的，就是 Terminal 程序。
 
@@ -54,19 +54,13 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> $HOME/.zprofile
 ```
 
-然后，执行 zsh 的重新启动命令 —— 记住这个命令，因为你后面会经常需要「重新启动 zsh」（`exec` 是英文单词，即，「执行」， `execute` 的简写）：
-
-```bash
-exec zsh
-```
-
-然后，Terminal 的提示符会看起来有所不同
+然后，重新启动 Terminal 程序（就是退出之后，重新打开）。再打开的 Terminal 的提示符会看起来有所不同
 
 ![](images/terminal-after-ohmyzsh.png)
 
 等一会儿安装好 Homebrew 之后，我们还可以进一步美化一下 Terminal 以及命令行提示符……
 
-## 4. Homebrew
+## 4. Homebrew (1)
 
 以后大量的程序安装、升级、卸载，都靠 [Homebrew](https://brew.sh/) 。
 
@@ -89,13 +83,7 @@ Homebrew 官方的代码仓库保存在 [GitHub](http://github.com/) 上，在�
 
 ![](images/brew-install-password.png)
 
-这个安装脚本会在 `.zprofile` 文件里补上一行：`eval $(/opt/homebrew/bin/brew shellenv)`，你暂时忽略这个细节，在命令行里重新启动 zsh 即可：
-
-```bash
-exec zsh
-```
-
-如果报错（`brew not found`），就退出 Terminal，重新启动它。
+这个安装脚本会在 `.zprofile` 文件里补上一行：`eval $(/opt/homebrew/bin/brew shellenv)`，你暂时忽略这个细节，重新启动 Terminal。
 
 而后，可以用以下命令验证 Homebrew 的安装：
 
@@ -322,7 +310,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k
 
 ![](images/subl-zshrc.png)
 
-而后重新启动 zsh（`exec zsh`），执行以下命令，以配置 Powerlevel10K：
+而后重新启动 Terminal，执行以下命令，以配置 Powerlevel10K：
 
 ```bash
 p10k configure
