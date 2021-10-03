@@ -251,11 +251,11 @@ $ git -C "$(brew --repo homebrew/core)" remote set-url origin https://github.com
 $ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://github.com/Homebrew/homebrew-cask
 
 # zsh 注释掉 HOMEBREW_BOTTLE_DOMAIN 配置
-$ vi ~/.zshrc
+$ suble ~/.zshrc
 # export HOMEBREW_BOTTLE_DOMAIN=xxxxxxxxx
 
 # bash 注释掉 HOMEBREW_BOTTLE_DOMAIN 配置
-$ vi ~/.bash_profile
+$ subl ~/.bash_profile
 # export HOMEBREW_BOTTLE_DOMAIN=xxxxxxxxx
 
 # 刷新源
