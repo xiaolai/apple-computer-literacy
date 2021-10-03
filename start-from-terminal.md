@@ -496,7 +496,7 @@ bashbrew update && brew upgrade && brew cleanup && mas upgrade
 
 在整个操作过程中，有可能「不小心搞乱了」，那就重来一遍，无所谓的。
 
-### 卸载通过 Homebrew 安装的软件
+### 9.1 卸载通过 Homebrew 安装的软件
 
 > **注意**
 >
@@ -509,7 +509,7 @@ brew remove --force $(brew list) --ignore-dependencies
 brew cleanup 
 ```
 
-### 卸载 Homebrew 
+### 9.2 卸载 Homebrew 
 
 卸载 Homebrew 的脚本如下 —— 至于两个脚本里用哪个，要看你正在使用的是哪个源：
 
@@ -527,7 +527,7 @@ brew cleanup
 sudo rm -rf /opt/Homebrew
 ```
 
-### 卸载 Oh My Zsh
+### 9.3 卸载 Oh My Zsh
 
 使用 `uninstall oh-my-zsh` 命令即可。
 
