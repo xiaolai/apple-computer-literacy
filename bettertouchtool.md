@@ -30,7 +30,7 @@ brew install bettertouchtool
 
 我用这两个动作替代了系统的三指左划和三指右划 —— 这在浏览器中相当于是「上一页」和「下一页」，挺省心省力的。
 
-注意设置可能看起来比较麻烦，你需要做的就是：
+它的设置可能看起来比较麻烦，不过，你需要做的只不过是：
 
 1. [购买一个付费许可](https://folivora.ai/buy)，我买的是 LIFE TIME LICENSE，$20.5；
-2. 下载并导入我的 presets，voila! 你一下子多了很多快捷键可用……
+2. 下载并导入[我的 presets](https://raw.githubusercontent.com/xiaolai/apple-computer-literacy/main/files/xiaolai.bttpreset)（使用鼠标右键，选择 `Save as...`），voila! 你一下子多了很多快捷键可用……
