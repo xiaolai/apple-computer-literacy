@@ -1,7 +1,5 @@
 # 从 Terminal 开始……
 
-注：我现在用的是基于 Apple Silicon 芯片的 Mac，Homebrew 的安装目录，在基于 Intel Chip 的 Mac 上可能有所不同。Homebrew 的根目录到底是什么，可以用 `echo $(brew --prefix) ` 查看。
-
 ## 0. Language
 
 系统语言要设置成英文。这样的好处在于，将来你遇到任何问题的时候，出错信息里里外外全都是英文的，于是，就可以直接拷贝粘贴到 Google 里搜索解决方案。不然的话，各种名称都可能因为是中文的而找不到太好的解决方案…… 另外，Region 也干脆设置成 `United States` 算了，因为将来可能还需要用海外账号使用 TV App，和 News App……
@@ -69,7 +67,25 @@ Homebrew 官方的代码仓库保存在 [GitHub](http://github.com/) 上，在�
 /bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
 ```
 
-> 注意：拷贝粘贴代码的时候，第一行包括进去了也没问题。`#` 这个字符是用来标注注释的，shell 会自动忽略当前行中 `#` 后面的所有内容。
+> **注意**
+>
+> 拷贝粘贴代码的时候，第一行包括进去了也没问题。`#` 这个字符是用来标注注释的，shell 会自动忽略当前行中 `#` 后面的所有内容。
+>
+> **补充**
+>
+> 官方源的安装使用以下代码
+>
+> ```bash
+> # 使用官方源安装
+> /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+> ```
+>
+> 另外，如果用的是官方安装脚本，那么，在安装结束之后，要补充执行以下命令：
+>
+> ```bash
+> echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/$USER/.zprofile
+> eval $(/opt/homebrew/bin/brew shellenv)
+> ```
 
 第一步选择镜像。我在北京，所以，就输入了 `2`，即，选择了清华大学下载源；随后，输入 `y`  确认开始执行脚本；之后会要求输入 password…… 这个 password 就是你的「开屏密码」（就是打开电脑，或者待机之后重新开机，需要登录的时候，所需要输入的那个密码）—— 在输入密码的时候，你在 Terminal 里看不到之前在图形界面中你所熟悉的对应的星号 `*****`，正确输入之后，按 `⏎` 键即可。如果输入错误，那就多按几次 `delete` 键，确保彻底删除所有已输入字符，重新输入即可。
 
@@ -98,6 +114,10 @@ brew info
 brew cleanup
 brew config
 ```
+
+> **注意**
+>
+> 我现在用的是基于 Apple Silicon 芯片的 Mac，Homebrew 的安装目录，在基于 Intel Chip 的 Mac 上可能有所不同。Homebrew 的根目录到底是什么，在安装好之后，可以用 `echo $(brew --prefix) ` 查看。
 
 ## 5. VPN Clients
 
@@ -465,11 +485,32 @@ mas install 970502923		## Typeeto	可用电脑键盘为 iOS 输入
 mas install 497799835 	## Xcode	
 ```
 
-如此这般之后，我就可以用 `brew update && brew upgrade && mas upgrade` 这一行命令升级电脑里的所有软件了……
+如此这般之后，我就可以用以下一行命令升级电脑里的所有软件了……
+
+```bash
+bashbrew update && brew upgrade && brew cleanup && mas upgrade
+```
 
 ## 9. Massed up
 
-在整个操作过程中，有可能「不小心搞乱了」，那就重来一遍，无所谓的。卸载 Homebrew 的脚本如下 —— 至于两个脚本里用哪个，要看你正在使用的是哪个源：
+在整个操作过程中，有可能「不小心搞乱了」，那就重来一遍，无所谓的。
+
+### 卸载通过 Homebrew 安装的软件
+
+> **注意**
+>
+> 不能在此之前卸载 Homebrew 😅
+
+卸载单个软件，用 `brew uninstall <package name>` 命令即可，比如，``brew uninstall shadowsocksx-ng-r`。若是想要卸载所有通过 Homebrew 安装的软件，那么，执行以下命令即可：
+
+```bash
+brew remove --force $(brew list) --ignore-dependencies  
+brew cleanup 
+```
+
+### 卸载 Homebrew 
+
+卸载 Homebrew 的脚本如下 —— 至于两个脚本里用哪个，要看你正在使用的是哪个源：
 
 ```bash
 # 使用官方源
@@ -484,4 +525,18 @@ mas install 497799835 	## Xcode
 ```
 sudo rm -rf /opt/Homebrew
 ```
+
+### 卸载 Oh My Zsh
+
+使用 `uninstall oh-my-zsh` 命令即可。
+
+## 10. Read & Search
+
+一个有趣的现象是，新手在接触到命令行的时候，大脑好像时刻处于「恐慌状态」（Panic Mode），面对突然出现的一整屏信息「不知所措」—— 不仅是中国人害怕英文，事实上，就算那是母语（美国人看英文、中国人看中文），也是一样的反应……
+
+事实上，作为新手所能遇到的问题，比如，执行某个步骤的时候所遇到的出错信息，都是可以通过 Google 找到答案的 —— 因为你肯定不是第一个也肯定不是唯一一个遇到同样问题的人。
+
+在 Terminal 里遇到的出错信息，用鼠标选中（Mac 上也可能是触摸板），而后点右键呼出 Context Menu，里面有一项，就是 `Search with Google ` —— 所谓的「**研究**」，其实不过是 **Search, Search, and Research**，就是反复搜索么！
+
+![](images/context-menu-search-google.png)
 
