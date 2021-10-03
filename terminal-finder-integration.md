@@ -1,4 +1,4 @@
-### Terminal 和 Finder 之间的跳转
+# Terminal 和 Finder 之间的跳转
 
 你总是需要很快地从 Terminal 跳转到 Finder，与此同时，你也总是需要很快地从 Finder 跳转到 Terminal……
 
