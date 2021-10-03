@@ -472,6 +472,7 @@ mas install 409222199 	## Cyberduck	可用 brew 安装，sftp 软件，但，我
 mas install 553245401 	## Friendly Streaming	收费视频平台聚合，我用它在电脑上看 Netflix 什么的
 mas install 682658836		## GarageBand	苹果的音乐工作室
 mas install 1461845568	## Gifox	录屏软件，保存为 gif 动图
+mas install 1551462255	## GMRight Mouse Lite 与 Windows 系统相似的鼠标右键菜单增强；付费版本是 1555844307
 mas install 1474276998	## HP Smart	惠普打印机管理
 mas install 408981434		## iMovie	
 mas install 1136220934	## Infuse	我用它来播放局域网内的视频
