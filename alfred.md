@@ -18,6 +18,8 @@ brew install alfred
 
 除此之外，它还有很多功能值得研究。
 
-比如，你想快速完成从 Terminal 到 Finder，或者反之 —— 虽然前面介绍过很多做法 —— 那么，最方便的，就是直接下载一个 Alfred Workflow，[alfred-terminalfinder](https://github.com/LeEnno/alfred-terminalfinder/raw/master/TerminalFinder.alfredworkflow)（右键 `Save as...`）；下载到本地之后，在安装好 Alfred 的情况下，鼠标双击下载好的文件，将其导入 Alfred —— 而后就可以一个快捷键呼出 Alfred Search Box（我为其设置的快捷键是 `⌥ ␣`（Option 和 Space），然后，输入 `tf⮐` 或者反之 `ft⮐` —— 太方便
+比如，你想快速完成从 Terminal 到 Finder，或者反之 —— 虽然前面介绍过很多做法 —— 那么，最方便的，就是直接下载一个 Alfred Workflow，[alfred-terminalfinder](https://github.com/LeEnno/alfred-terminalfinder/raw/master/TerminalFinder.alfredworkflow)（右键 `Save as...`）；下载到本地之后，在安装好 Alfred 的情况下，鼠标双击下载好的文件，将其导入 Alfred —— 而后就可以一个快捷键呼出 Alfred Search Box（我为其设置的快捷键是 `⌥ ␣`（Option 和 Space），然后，输入 `tf⮐` 或者反之 `ft⮐` —— 太方便。
+
+再比如说，需要输入一些 Unicode 的时候，官方自带的 Charater View 要多别扭就有多别扭…… 可是，在 Alfred 里安装 [Unicode Text Search Workflow](https://github.com/bevesce/unicode-symbols-search/raw/master/Unicode%20Symbols%20Search.alfredworkflow) 之后，就实在是太方便了，在输入框里输入：`uss four fi↩` （不用等到输入完整的时候，`⅘` 已经排在第一位了）按下回车键的时候，`⅘` 这个字符已经在剪贴板里，并且放到你刚刚正在输入的区域里了……
 
 应该花点时间研究一下 Github 上的 [Awesome Alfred](https://github.com/alfred-workflows/awesome-alfred-workflows) 的仓库，里面有很多方便且必须的 Alfred Workflow……
