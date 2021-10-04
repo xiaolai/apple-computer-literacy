@@ -6,6 +6,8 @@
 brew install sublime-text
 ```
 
+用 Homebrew 安装 Sublime Text 之后，命令行里会多一个命令，`subl`。
+
 任何人（哪怕不是程序员）都一样，经常需要
 
 > * 搜索与替换，或者批量替换
@@ -22,3 +24,4 @@ brew install sublime-text
 > * [Sublime Text GIFS Cheat Sheet](https://www.shortcutfoo.com/blog/sublime-text-3-gifs-cheat-sheet/)
 
 当然，任何人最终为了（极大）提高效率，都会（也都有可能）学一点编程的 —— 明明花同样的钱买了一个自动化工具（就是电脑），会不会写程序所带来的效率差异，而不是一倍两倍，有可能万倍千万倍都不止呢。
+
