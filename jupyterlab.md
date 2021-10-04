@@ -96,6 +96,19 @@ c.ServerApp.root_dir = '~/'
 c.ServerApp.token = ''
 ```
 
+以上两个步骤也可以用 `echo` 命令替代：
+
+```bash
+cat <<EOF > $HOME/./jupyter/jupyter_lab_config.py
+c.LabApp.open_browser = False
+c.ServerApp.open_browser = False
+c.ServerApp.password_required = False
+c.ServerApp.allow_remote_access = False
+c.ServerApp.root_dir = '~/'
+c.ServerApp.token = ''
+EOF
+```
+
 ## 4. 创建两个服务文件
 
 第一个文件
@@ -113,6 +126,19 @@ eval "$(conda 'shell.zsh' hook)"
 conda activate jupyter
 cd ~
 /opt/homebrew/Caskroom/miniconda/base/envs/jupyter/bin/python -m jupyter lab
+```
+
+以上两个步骤也可以用 `echo` 命令替代：
+
+```bash
+cat <<EOF > /opt/homebrew/bin/jupyterservice
+#!/bin/zsh
+PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+eval "$(conda 'shell.zsh' hook)"
+conda activate jupyter
+cd ~
+/opt/homebrew/Caskroom/miniconda/base/envs/jupyter/bin/python -m jupyter lab
+EOF
 ```
 
 然后再执行一条命令
@@ -149,6 +175,33 @@ subl ~/Library/LaunchAgents/com.jupyter.lab.plist
 </dict>
 </plist>
 ```
+
+以上两个步骤也可以用 `echo` 命令替代：
+
+```bash
+cat <<EOF >~/Library/LaunchAgents/com.jupyter.lab.plist
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>local.job</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/opt/homebrew/bin/jupyterservice</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/tmp/local.job.err</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/local.job.out</string>
+</dict>
+</plist>
+EOF
+```
+
+
 
 ## 5. 启动服务
 
@@ -199,7 +252,7 @@ alias zs="subl ~/.zshrc" # 用 sublimetext 打开 ~/.zshrc 文件
 conda activate jupyter
 npm install nativefier -g 
 cd ~/Applications
-nativefier "http://localhost:8888" -n Jupyterlab -i https://github.com/xiaolai/apple-computer-literacy/raw/main/images/jupyterlab-app-icon.png
+nativefier "http://localhost:8888"
 ```
 
 终于，以后我可以这样用 Jupyterlab 了……
