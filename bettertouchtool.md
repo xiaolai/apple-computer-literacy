@@ -34,3 +34,7 @@ brew install bettertouchtool
 
 1. [购买一个付费许可](https://folivora.ai/buy)，我买的是 LIFE TIME LICENSE，$20.5；
 2. 下载并导入[我的 presets](https://raw.githubusercontent.com/xiaolai/apple-computer-literacy/main/files/xiaolai.bttpreset)（使用鼠标右键，选择 `Save as...`），voila! 你一下子多了很多快捷键可用……
+
+另外，说到「窗口管理」，一个必须设置的就是拖动窗口的快捷方式。在 Mac 上，我更习惯使用触摸板而不是鼠标。所以，「三指拖动窗口」对我来说，是必需的功能设置。`System Preferences → Accessibility → Pointer Control → Trackpad Options... → Enable dragging → three finger drag`：
+
+![](images/three-finger-drag.png)
