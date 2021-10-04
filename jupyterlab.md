@@ -1,3 +1,5 @@
+# Jupyterlab
+
 我写《自学是门手艺》的时候，就是用 Jupyterlab 写的 —— 因为在写作的过程中要确保所有的代码都是真正能够正确执行的。在没有 Jupyterlab 之前，写一本编程书籍出版之后，读者们几乎必然会遇到「压根就无法正确执行」的代码 —— 读者苦恼，作者其实更苦恼，谁想写出来卖出去的是垃圾呢？
 
 用 Jupyterlab 还可以极方便地编写一些短程序，测试并使用 —— 不仅仅是 Python…… 不过，我在 Jupyterlab 上还真的基本上只用 Python。
@@ -197,6 +199,9 @@ alias zs="subl ~/.zshrc" # 用 sublimetext 打开 ~/.zshrc 文件
 conda activate jupyter
 npm install nativefier -g 
 cd ~/Applications
-nativefier "http://localhost:8888" -n Jupyterlab -i https://camo.githubusercontent.com/4af57622d11bdacfdb754a2ae572d58bade7afbbca2ae154738b86fa3df9d2ff/68747470733a2f2f692e6962622e636f2f376a30687866312f6a7570797465726c61622d69636f6e2e706e67
+nativefier "http://localhost:8888" -n Jupyterlab -i https://github.com/xiaolai/apple-computer-literacy/raw/main/images/jupyterlab-app-icon.png
 ```
 
+终于，以后我可以这样用 Jupyterlab 了……
+
+![](images/jupyter-my.png)
