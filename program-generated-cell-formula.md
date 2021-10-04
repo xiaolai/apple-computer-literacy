@@ -17,7 +17,7 @@ for i in range(0, 816):
     print(100)
 ```
 
-将输出结果拷贝粘贴到电子表格里就行了…… 我用 [Jupyterlab](jupyter.md) 是这样的：
+将输出结果拷贝粘贴到电子表格里就行了…… 我用 [Jupyterlab](jupyterlab.md) 是这样的：
 
 ![](images/jupyterlab-spreadsheet-helper.png)
 
