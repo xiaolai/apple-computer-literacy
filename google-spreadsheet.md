@@ -2,13 +2,13 @@
 
 电子表格几乎可以称作是计算机时代里「最伟大的发明之一」—— 因为它使得绝大多数普通人瞬间拥有了与数学家一样的「算力」。
 
-举个例子，<img height="14" src="images/equation.png"> 或者 <img height="14" src="images/equation-1.png"> 上过小学的人都能算出来（其实是背出来的)，可是，<img height="14" src="images/equation-2.png">我们的大脑直接宕机了 —— 别说我们普通人了，数学家的脑子也一样会宕机…… 用电子表格就简单了，无非是 `=power(2.5, 3.2)`，等于 `18.76756928`。在没有电子表格之前，我们就是束手无策啊！
+举个例子，<img height="15" src="images/equation.png"> 或者 <img height="15" src="images/equation-1.png"> 上过小学的人都能算出来（其实是背出来的)，可是，<img height="15" src="images/equation-2.png">我们的大脑直接宕机了 —— 别说我们普通人了，数学家的脑子也一样会宕机…… 用电子表格就简单了，无非是 `=power(2.5, 3.2)`，等于 `18.76756928`。在没有电子表格之前，我们就是束手无策啊！
 
 事实上，在斐波那契于 1202 年发表《计算之书》之前，欧洲人还在使用罗马数字，你可以想象一下，没有小数点的时代里，人们计算利息或者汇率有多麻烦甚至不可能？在阿拉伯数字成为人类计算的通用工具之后，要再过将近五百年，才有幂运算的出现；直到 19 世纪上半叶，法国数学家拉克洛瓦（S. F. Lacroix）在他出版的《代数学》讨论了同底数幂的乘法法则之后，指数律才开始出现于任何一本代数教科书中…… 今天，人们在初中的时候就已经学习幂运算了 —— 不过，实际上，大多数人在生活中很少真的去用，虽然其实它总是最必须的计算工具之一。
 
 ## 说明
 
-Github 的 markdown 不支持 LaTeX 数学公式，所以，在 GitHub 上大家会看到诸如 `$2^2 = 4$` 这样的 inline LaTeX。所以，这个文档中的 LaTex 都被我用转换工具转换成了 png 图片。如果你使用类似 [Typora](https://typora.io/) 打开[当前文件的另外一个副本](google-spreadsheet-with-math-syntax.md)的话就可以看到正确的数学表达式。当然，在 Typora 中也需要设置，勾选`Inline Math (e.g: $\LaTeX$)`：
+Github 的 markdown 不支持 LaTeX 数学公式，所以，在 GitHub 上大家会看到诸如 `$2^2 = 4$` 这样的 inline LaTeX。所以，这个文档中的 LaTex 都被我用[转换工具](https://latex2image.joeraut.com/)转换成了 png 图片。如果你使用类似 [Typora](https://typora.io/) 打开[当前文件的另外一个副本](google-spreadsheet-with-math-syntax.md)的话就可以看到正确的数学表达式。当然，在 Typora 中也需要设置，勾选`Inline Math (e.g: $\LaTeX$)`：
 
 ![Typora Settings](images/typora-settings.png)
 
@@ -20,7 +20,7 @@ Github 的 markdown 不支持 LaTeX 数学公式，所以，在 GitHub 上大家
 
 如果一个投资标的可以做到年化复合回报率 15%，那么，一百年后，它为投资人创造了多少倍的回报呢？—— 还别说，真有这样的投资标的，2019 年的时候，可口可乐公司上市一百周年。人们算了一下，在这一百年间，可口可乐公司竟然为股东创造了 15% 的年化复合回报率！
 
-<img src="images/equation-3.png">
+> <img src="images/equation-3.png">
 
 在电子表格里的某个单元输入以下公式：`=power((1+15%), 100)`，而后就会得到结果：`1174313.451` —— 在一百年的时间里，可口可乐公司为股东创造了 117 万多倍的投资回报！
 
@@ -28,9 +28,9 @@ Github 的 markdown 不支持 LaTeX 数学公式，所以，在 GitHub 上大家
 
 如果我们想做到 $n$ 年 $m$ 倍的投资回报，那么年化复合回报率 $x$ 应该是多少呢？
 
-> <img height="14" src="images/equation-4.png">
->
-> <img height="14" src="images/equation-5.png">
+> <img height="15" src="images/equation-4.png">
+> <br />
+> <img height="15" src="images/equation-5.png">
 
 写到电子表格里就是 `x = POWER(m, 1/n) - 1`
 
@@ -38,8 +38,8 @@ Github 的 markdown 不支持 LaTeX 数学公式，所以，在 GitHub 上大家
 
 总结一下：
 
-> * `POWER(x,y)` 就相当于是 <img height="14" src="images/equation-8.png">；
-> *  `POWER(x, 1/y)` 就相当于是<img height="14" src="images/equation-9.png">
+> * `POWER(x,y)` 就相当于是 <img height="15" src="images/equation-8.png">；
+> *  `POWER(x, 1/y)` 就相当于是<img height="15" src="images/equation-9.png">
 
 ## 2. 定投收益率计算
 
