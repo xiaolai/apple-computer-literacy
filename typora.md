@@ -4,6 +4,8 @@ Markdown 是一种极致简单的文本标记格式，今天已经成了互联�
 
 [Typora](https://typora.io/) 是 MacOS 上目前最好用的 Markdown 编辑器，缺点是没有 iOS 版本 —— 也就是说，在 iPad 上无法像 Craft、Bear 那样相互通用且共享文件，不过，的确绝大多数写作都是在 Mac 上完成的。
 
+当前你正在阅读的文档，我写的时候，就是用 Typora。
+
 自从开始使用 Markdown 之后，Microsoft Word 和 Apple Pages 都成了基本处于弃用的状态。Microsoft Word，现在我只是在直播的时候，把它当作白板使用（因为可以设置很多与格式有关的快捷键）；Apple Pages 么，虽然顺手安装了，可真的很久很久没打开用了。
 
 ```bash
