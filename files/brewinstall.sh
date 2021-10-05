@@ -4,9 +4,13 @@ PACAGES="git wget tree mas appcleaner onyx cleanmymac bettertouchtool alfred bla
 for p in $PACAGES; do
 	if (echo $(brew list)  | fgrep -q $p); then
 		echo "$p has already installed."
+	elif (echo $(brew list --cask)  | fgrep -q $p); then
+		echo "$p has already cask installed."
 	else
 		brew install $p
 		# echo "$p installed successfully."
 	fi
 done;
 
+# brew cleanup
+# brew upgrade

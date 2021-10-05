@@ -459,11 +459,16 @@ PACAGES="git wget tree mas appcleaner onyx cleanmymac bettertouchtool alfred bla
 for p in $PACAGES; do
 	if (echo $(brew list)  | fgrep -q $p); then
 		echo "$p has already installed."
+	elif (echo $(brew list --cask)  | fgrep -q $p); then
+		echo "$p has already cask installed."
 	else
 		brew install $p
 		# echo "$p installed successfully."
 	fi
 done;
+
+# brew cleanup
+# brew upgrade
 ```
 
 用这个脚本的好处是，不会因为安装某个软件出错而中断。也可以[下载这个脚本](https://raw.githubusercontent.com/xiaolai/apple-computer-literacy/main/files/brewinstall.sh)，根据需求编辑下载列表，而后在 Terminal 里运行 `sh brewinstall.sh`（当然要先用 `cd` 命令转到这个脚本所在的目录之中）。

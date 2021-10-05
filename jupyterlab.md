@@ -252,7 +252,9 @@ alias zs="subl ~/.zshrc" # 用 sublimetext 打开 ~/.zshrc 文件
 conda activate jupyter
 npm install nativefier -g 
 cd ~/Applications
-nativefier "http://localhost:8888"
+curl https://github.com/xiaolai/apple-computer-literacy/raw/main/images/jupyterlab-app-icon.png --output jupyterlab-app-icon.png
+nativefier "http://localhost:8888" -i jupyterlab-app-icon.png
+rm jupyterlab-app-icon.png
 ```
 
 终于，以后我可以这样用 Jupyterlab 了……
