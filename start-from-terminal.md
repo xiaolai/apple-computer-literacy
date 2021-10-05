@@ -396,7 +396,7 @@ brew install cleanmymac	# 系统维护工具，功能比 onyx 多一点点，收
 ```bash
 brew install bettertouchtool	# 定制各种快捷操作，也能做窗口管理，收费软件
 brew install alfred	# 定制各种工具流，还包括一个剪贴板增强工具，收费软件
-brew install blackhole-64	# 系统音频软导流工具，用 OBS 做直播播放音乐时需要
+brew install blackhole-64ch	# 系统音频软导流工具，用 OBS 做直播播放音乐时需要
 ```
 
 ### 8.4 文本编辑器
@@ -448,6 +448,12 @@ brew install transmission	# 另一款 bittorrent 下载客户端
 brew install vlc	# 媒体播放器
 brew install webcatalog	# 将很多网站服务打包成 App 独立运行的软件，我用它下载 Google Sheets 之类
 brew install wechat # 微信桌面版
+```
+
+也可以用一行命令安装以上所有软件：
+
+```
+brew install git wget tree mas appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora google-chrome firefox microsoft-edge brave-browser opera tor-browser surge android-studio audacity baidunetdisk calibre dropbox keka microsoft-remote-desktop miniconda obs openaudible sketch skitch spotify thunder transmission vlc webcatalog wechat
 ```
 
 ### 8.8 用 mas 管理 App Store
