@@ -450,13 +450,25 @@ brew install webcatalog	# 将很多网站服务打包成 App 独立运行的软�
 brew install wechat # 微信桌面版
 ```
 
-也可以用一行命令安装以上所有软件（以下我用了 `brew reinstall` 命令，因为常常有不小心已经安装好的软件）：
+也可以以下脚本安装以上所有软件（以下我用了 `brew reinstall` 命令，因为常常有不小心已经安装好的软件）：
 
-```
-brew reinstall git wget tree mas appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora google-chrome firefox microsoft-edge brave-browser opera tor-browser surge android-studio audacity baidunetdisk calibre dropbox keka microsoft-remote-desktop miniconda obs openaudible sketch skitch spotify thunder transmission vlc webcatalog wechat
+```shell
+#!/bin/zsh
+PACAGES="git wget tree mas appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora google-chrome firefox microsoft-edge brave-browser opera tor-browser surge android-studio audacity baidunetdisk calibre dropbox keka microsoft-remote-desktop miniconda obs openaudible sketch skitch spotify thunder transmission vlc webcatalog wechat"
+
+for p in $PACAGES; do
+	if (echo $(brew list)  | fgrep -q $p); then
+		echo "$p has already installed."
+	else
+		brew install $p
+		# echo "$p installed successfully."
+	fi
+done;
 ```
 
-### 8.8 用 mas 管理 App Store
+用这个脚本的好处是，不会因为安装某个软件出错而中断。也可以下载这个脚本，而后在 Terminal 里运行 `sh brewinstall.sh`（当然要先用 `cd` 命令转到这个脚本所在的目录之中）。
+
+###  用 mas 管理 App Store
 
 尚未安装 `mas` 的话，用 `brew install mas` 安装。`mas` 命令的用法如下：
 
