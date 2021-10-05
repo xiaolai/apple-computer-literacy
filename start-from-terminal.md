@@ -450,10 +450,10 @@ brew install webcatalog	# 将很多网站服务打包成 App 独立运行的软�
 brew install wechat # 微信桌面版
 ```
 
-也可以用一行命令安装以上所有软件：
+也可以用一行命令安装以上所有软件（以下我用了 `brew reinstall` 命令，因为常常有不小心已经安装好的软件）：
 
 ```
-brew install git wget tree mas appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora google-chrome firefox microsoft-edge brave-browser opera tor-browser surge android-studio audacity baidunetdisk calibre dropbox keka microsoft-remote-desktop miniconda obs openaudible sketch skitch spotify thunder transmission vlc webcatalog wechat
+brew reinstall git wget tree mas appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora google-chrome firefox microsoft-edge brave-browser opera tor-browser surge android-studio audacity baidunetdisk calibre dropbox keka microsoft-remote-desktop miniconda obs openaudible sketch skitch spotify thunder transmission vlc webcatalog wechat
 ```
 
 ### 8.8 用 mas 管理 App Store
