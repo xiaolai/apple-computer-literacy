@@ -466,7 +466,7 @@ for p in $PACAGES; do
 done;
 ```
 
-用这个脚本的好处是，不会因为安装某个软件出错而中断。也可以下载这个脚本，而后在 Terminal 里运行 `sh brewinstall.sh`（当然要先用 `cd` 命令转到这个脚本所在的目录之中）。
+用这个脚本的好处是，不会因为安装某个软件出错而中断。也可以[下载这个脚本](https://raw.githubusercontent.com/xiaolai/apple-computer-literacy/main/files/brewinstall.sh)，根据需求编辑下载列表，而后在 Terminal 里运行 `sh brewinstall.sh`（当然要先用 `cd` 命令转到这个脚本所在的目录之中）。
 
 ###  用 mas 管理 App Store
 
