@@ -381,6 +381,8 @@ brew install git	# MacOS 自带的 Apple Git 也不是不能用，但，替换�
 brew install wget	# 比 curl 方便一点的下载工具
 brew install tree	# 用来查询目录的树状结构
 brew install mas	# 用来管理 App Store 里的软件
+brew install yt-dlp	# 主流视频网站文件命令行下载工具
+brew install symboliclinker	# 生成 Symbolic Link（类似 Windows 里的「快捷方式」）的服务
 ```
 
 ### 8.2 系统维护工具
@@ -454,7 +456,7 @@ brew install wechat # 微信桌面版
 
 ```shell
 #!/bin/zsh
-PACAGES="git wget tree mas appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora google-chrome firefox microsoft-edge brave-browser opera tor-browser surge android-studio audacity baidunetdisk calibre dropbox keka microsoft-remote-desktop miniconda obs openaudible sketch skitch spotify thunder transmission vlc webcatalog wechat"
+PACAGES="git wget tree mas yt-dlp symboliclinker appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora google-chrome firefox microsoft-edge brave-browser opera tor-browser surge android-studio audacity baidunetdisk calibre dropbox keka microsoft-remote-desktop miniconda obs openaudible sketch skitch spotify thunder transmission vlc webcatalog wechat"
 
 for p in $PACAGES; do
 	if (echo $(brew list)  | fgrep -q $p); then
