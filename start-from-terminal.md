@@ -56,7 +56,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 使用同一个工具管理所有软件的下载安装，当然远比一个个打开网站手动下载再安装方便太多了。
 
-但，用 Homebrew 最直接的好处就是，用它可以绕开 GFW，直接下载并安装必要的 VPN 软件，免费的比如 Shadowsocks、ClashX，收费的比如 Surge 等等 —— 没有 Homebrew，你就被限制住了：没有 VPN 软件，所以，无法打开 Google，也无法连接到下载 VPN 软件的网站上，然后，死循环。
+但，用 Homebrew 最直接的好处就是，用它可以直接下载并安装必要的连接全网软件，免费的比如 [Shadowsocks-NG-R](https://github.com/qinyuhang/ShadowsocksX-NG-R/releases)、[ClashX](https://github.com/yichengchen/clashX/releases)，收费的比如 [Surge](https://nssurge.com/) 等等 —— 没有 Homebrew，你就被限制住了：没有连接全网的软件，所以，无法打开 Google，也无法连接到下载上面提到的三个软件的网站上，然后，死循环……
 
 Homebrew 官方的代码仓库保存在 [GitHub](http://github.com/) 上，在国内很多地方，直接访问 Github 要么直接访问不了，要么非常非常慢…… 所以，安装 Homebrew 的时候，需要「绕行」一下，先用国内镜像安装，然后再切换回官方源。
 
