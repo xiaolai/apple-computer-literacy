@@ -38,3 +38,12 @@ brew install bettertouchtool
 另外，说到「窗口管理」，一个必须设置的就是拖动窗口的快捷方式。在 Mac 上，我更习惯使用触摸板而不是鼠标。所以，「三指拖动窗口」对我来说，是必需的功能设置。`System Preferences → Accessibility → Pointer Control → Trackpad Options... → Enable dragging → three finger drag`：
 
 ![](images/three-finger-drag.png)
+
+另外，在多个 Desktop Space 之间切换有系统内建的快捷键：
+
+> * `⌃ ←` 或在触摸板上四指左滑，切换到前一个 Desktop Space
+> * `⌃ →` 或在触摸板上四指右滑，切换到后一个 Desktop Space
+> * `⌃ ↑` 或在触摸板上四指上滑，切换到 Misson Control 模式，查看所有窗口和 Desktop Space
+> * `⌃ ↓` 或在触摸板上四指下滑，返回当前 Desktop Space
+
+[点击这里](https://support.apple.com/en-hk/guide/mac-help/mh14112/mac)查看 Desktop Space 的官方说明。
