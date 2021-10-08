@@ -115,4 +115,5 @@ $HOME/Library/Android/sdk/emulator/emulator @Pixel
 adb shell su root "date $(date +%m%d%H%M)"
 ```
 
-补充 3：除了安装 Android 模拟器这个方法之外，还有另外一个办法，用 [Sideloadly](https://sideloadly.io/) —— 官网上的教程已经足够详细。问题在于，到哪里去找 Unsigned IPA。两个办法，1）自己越狱一个 iOS 设备，而后继续折腾；2）用 Tor-Browser 到 https://appdb.to 找；3）直接用这个两个链接（不保证随时更新）Kindle、Audible。
+补充 3：除了安装 Android 模拟器这个方法之外，还有另外一个办法，用 [Sideloadly](https://sideloadly.io/) —— 官网上的教程已经足够详细。问题在于，到哪里去找 Unsigned IPA。三个办法，1）自己越狱一个 iOS 设备，而后继续折腾；2）用 Tor-Browser 到 https://appdb.to 找；3）直接用这个两个链接下载（不保证随时更新）[Kindle](https://github.com/xiaolai/apple-computer-literacy/raw/main/files/Audible.ipa)、[Audible](https://github.com/xiaolai/apple-computer-literacy/raw/main/files/Kindle.ipa)。
+
