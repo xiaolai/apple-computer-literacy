@@ -99,7 +99,8 @@ c.ServerApp.token = ''
 以上两个步骤也可以用 `echo` 命令替代：
 
 ```bash
-cat <<EOF > $HOME/./jupyter/jupyter_lab_config.py
+touch $HOME/.jupyter/jupyter_lab_config.py
+cat <<EOF > $HOME/.jupyter/jupyter_lab_config.py
 c.LabApp.open_browser = False
 c.ServerApp.open_browser = False
 c.ServerApp.password_required = False
