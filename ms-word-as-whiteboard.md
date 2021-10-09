@@ -12,7 +12,7 @@
 
 ![](images/help-editor.png)
 
-在左侧上部 “Project - Normal” 面板中选择 “NewMacros”，而后在右侧 “Normal - NewMacros (Code)” 面板中输入以下代码（或者拷贝粘贴）：（）
+在左侧上部 “Project - Normal” 面板中选择 “NewMacros”，而后在右侧 “Normal - NewMacros (Code)” 面板中输入以下代码（或者拷贝粘贴）：（[vba 文件](https://raw.githubusercontent.com/xiaolai/apple-computer-literacy/main/files/newMacro_for_NomalTemplate.vba)）
 
 ```vba
 
