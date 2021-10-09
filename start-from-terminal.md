@@ -379,6 +379,7 @@ scutil --set HostName "Macbook-Air-M1"
 ```bash
 brew install git	# MacOS 自带的 Apple Git 也不是不能用，但，替换掉已经成了习惯
 brew install wget	# 比 curl 方便一点的下载工具
+brew install carlocab/personal/unrar 	# 命令行解压缩工具
 brew install tree	# 用来查询目录的树状结构
 brew install mas	# 用来管理 App Store 里的软件
 brew install yt-dlp	# 主流视频网站文件命令行下载工具
