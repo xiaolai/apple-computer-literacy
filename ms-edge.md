@@ -62,7 +62,7 @@ Microsoft Edge 是基于 Google Chrome 的，所以，它们的插件是通用�
 
 另外还有个 [bypass-paywalls](https://github.com/iamadamdev/bypass-paywalls-chrome) 可以试试。虽然几乎所有的付费网站我都全年订阅了，我还是会使用这个插件，因为有它就省的我每次都要打开 1Password 去登录了…… 安装得稍微麻烦。方法一，是用官网的
 
-1. 选择一个保存目录，而后用 `git` 先下载源码：
+1. 选择一个保存目录，而后用 `git` 先下载源码到该目录中：
 
 ```bash
 git clone git@github.com:iamadamdev/bypass-paywalls-chrome.git
