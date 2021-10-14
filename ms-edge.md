@@ -10,6 +10,8 @@
 
 这个文本朗读功能（Read Aloud）在几天之内就彻底改变了我的新闻阅读习惯 —— 从过去「主要看新闻」直接变成了「只听新闻」…… 尤其是我现在整天站在工作台前的走步机上，更使得我喜欢这个文本朗读功能。
 
+> 注意，经过一段时间的推荐和使用才发现，系统的地区设置如果是「中国」的话，朗读功能里的声音列表就没有「Natural」（自然语音）—— 所以，得在系统设置里把 Location 改成其他地方，比如 United States。
+
 于是，干脆用 BetterTouchTool 设置了个快捷键，`Ctrl + R`，用来完成以下几个步骤：
 
 > 1. 进入 Immersive Reading Mode
@@ -60,7 +62,7 @@ Microsoft Edge 是基于 Google Chrome 的，所以，它们的插件是通用�
 * [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne) 网页样式自定义，有很多网站没有它的话就真的很难看，比如 [HackersNews](https://news.ycombinator.com/)
 * [Wikipedia URL Shortener](https://chrome.google.com/webstore/detail/wikipedia-url-shortener/ioekneldioljahdoiddhikknahbbkhan)
 
-另外还有个 [bypass-paywalls](https://github.com/iamadamdev/bypass-paywalls-chrome) 可以试试。虽然几乎所有的付费网站我都全年订阅了，我还是会使用这个插件，因为有它就省的我每次都要打开 1Password 去登录了…… 安装得稍微麻烦。方法一，是用官网的
+还有个 [bypass-paywalls](https://github.com/iamadamdev/bypass-paywalls-chrome) 可以试试。虽然几乎所有的付费网站我都全年订阅了，我还是会使用这个插件，因为有它就省的我每次都要打开 1Password 去登录了…… 安装得稍微麻烦。方法一，是用官网的
 
 1. 选择一个保存目录，而后用 `git` 先下载源码到该目录中：
 
@@ -75,6 +77,38 @@ git clone git@github.com:iamadamdev/bypass-paywalls-chrome.git
 注意：插件文件夹得一直留在那里，删除它等于卸载插件。
 
 还有，Bypass-paywalls 最好和 [uBlock Origin](https://microsoftedge.microsoft.com/addons/detail/ublock-origin/odfafepnkmbhccpbejgmiehpchacaeak) 一起配合使用。
+
+另外，[MD Reader](https://github.com/Heroor/md-reader) 是我最近才开始用的插件。以前没有在浏览器里阅读 Markdown 的必要，但，自从开始用 Edge 的朗读功能之后，一个能在 Edge 里跑的 Markdown 阅读器就成了必需。
+
+1. 选择一个保存目录，而后用 `git` 先下载源码到该目录中：
+
+```bash
+git clone https://github.com/Heroor/md-reader.git
+cd md-reader
+npm install
+npm run build
+```
+
+2. 与上面安装 by-passwalls 一样，`Load Unpacked`（浏览并选择至 `md-reader/extension`目录）
+3. 我会修改一下 Markdown 显示的样式，css 文件在 `extension/css/content-script.css`；修改完之后，重新启动 Edge，就可生效。
+
+```css
+/* body.md-reader 的 font-family 里，把 "Kaiti SC" 放在最开头*/
+font-family: "Kaiti SC", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+/* body.md-reader .md-reader__body .md-reader__markdown-content 里同样； */
+font-family: "Kaiti SC", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/* 加额外加一行：中文排版的一个小秘诀，字符之间有一点点空间，看起来就很舒服 */
+letter-spacing: 1px;
+/* 楷体字符较小，所以，字号可以放大一点，原本是 15px，改成 18px */
+font-size: 18px;
+
+/* 相应地，h1, h2, h3, h4, h5... 字号可能都要调整一下 */
+/* h1: 30px; h2: 26px; h3: 22px... */
+/* body.md-reader .md-reader__body .md-reader__markdown-content h1 */
+```
+
+
 
 ## 常用新闻网站
 

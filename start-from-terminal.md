@@ -38,6 +38,12 @@ xcode-select --install
 
 这一步安装，从你的角度来看，好像没发生什么…… 
 
+还需要再执行一个命令：
+
+```bash
+sudo xcodebuild -license
+```
+
 ## 3. Oh-my-zsh
 
 在 BigSur 里，Mac OS 使用的默认 Shell，不再是 `bash`，而是 `zsh`，所以，干脆再安装一个 `zsh` 的增强工具，`oh-my-zsh` —— 它将来会提供很多方便：
@@ -457,13 +463,11 @@ brew install wechat # 微信桌面版
 
 ```shell
 #!/bin/zsh
-PACAGES="git wget tree mas yt-dlp symboliclinker appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora google-chrome firefox microsoft-edge brave-browser opera tor-browser surge android-studio audacity baidunetdisk calibre dropbox keka microsoft-remote-desktop miniconda obs openaudible sketch skitch spotify thunder transmission vlc webcatalog wechat"
+PACAGES="git wget tree mas yt-dlp symboliclinker appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora "
 
-for p in $PACAGES; do
+for p in $PACAGESter; do
 	if (echo $(brew list)  | fgrep -q $p); then
 		echo "$p has already installed."
-	elif (echo $(brew list --cask)  | fgrep -q $p); then
-		echo "$p has already cask installed."
 	else
 		brew install $p
 		# echo "$p installed successfully."
