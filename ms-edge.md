@@ -11,8 +11,14 @@
 这个文本朗读功能（Read Aloud）在几天之内就彻底改变了我的新闻阅读习惯 —— 从过去「主要看新闻」直接变成了「只听新闻」…… 尤其是我现在整天站在工作台前的走步机上，更使得我喜欢这个文本朗读功能。
 
 > 注意，经过一段时间的推荐和使用才发现，系统的地区设置如果是「中国」的话，朗读功能里的声音列表就没有「Natural」（自然语音）—— 所以，得在系统设置里把 Location 改成其他地方，比如 United States。
+>
+> 如果这还不起作用，那么清空一下本地的 DNS Cache，在 Terminal 里执行以下命令：
+>
+> ```bash
+>  sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder.
+> ```
 
-于是，干脆用 BetterTouchTool 设置了个快捷键，`Ctrl + R`，用来完成以下几个步骤：
+后来，我干脆用 BetterTouchTool 设置了个快捷键，`Ctrl + R`，用来完成以下几个步骤：
 
 > 1. 进入 Immersive Reading Mode
 > 2. 打开 Read Aloud
@@ -101,11 +107,12 @@ font-family: "Kaiti SC", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ox
 /* 加额外加一行：中文排版的一个小秘诀，字符之间有一点点空间，看起来就很舒服 */
 letter-spacing: 1px;
 /* 楷体字符较小，所以，字号可以放大一点，原本是 15px，改成 18px */
-font-size: 18px;
+font-size: 20px;
 
 /* 相应地，h1, h2, h3, h4, h5... 字号可能都要调整一下 */
-/* h1: 30px; h2: 26px; h3: 22px... */
-/* body.md-reader .md-reader__body .md-reader__markdown-content h1 */
+/* 用百分比更好一些（以上面指定过的字号 20px 为基础： */
+/* h1: 220%; h2: 200%; h3: 180%... */
+/* body.md-reader .md-reader__body .md-reader__markdown-content h1 {...} */
 ```
 
 
