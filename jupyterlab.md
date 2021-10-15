@@ -82,31 +82,28 @@ jupyter lab
 ## 3. 创建一个配置文件
 
 ```bash
-jupyter-lab --generate-config
+jupyter notebook --generate-config
 ```
 
-生成的配置文件保存在 `./jupyter/jupyter_lab_config.py`，用 Sublime Text 打开它并在末尾添加以下内容（当然，你用系统自带的免费的但愚蠢的 Text Edit 也行）：
+生成的配置文件保存在 `./jupyter/` 文件夹中，用 Sublime Text 打开 `jupyter_server_config.json` （当然，你用系统自带的免费的但愚蠢的 Text Edit 也行），把 `password` 改成空字符串：
 
 ```json
-c.LabApp.open_browser = False
-c.ServerApp.open_browser = False
-c.ServerApp.password_required = False
-c.ServerApp.allow_remote_access = False
-c.ServerApp.root_dir = '~/'
-c.ServerApp.token = ''
+{
+  "ServerApp": {
+    "password": ""
+  }
+}
 ```
 
-以上两个步骤也可以用 `echo` 命令替代：
+以上步骤也可以用 `echo` 命令替代：
 
 ```bash
-touch $HOME/.jupyter/jupyter_lab_config.py
-cat <<EOF > $HOME/.jupyter/jupyter_lab_config.py
-c.LabApp.open_browser = False
-c.ServerApp.open_browser = False
-c.ServerApp.password_required = False
-c.ServerApp.allow_remote_access = False
-c.ServerApp.root_dir = '~/'
-c.ServerApp.token = ''
+cat <<EOF > $HOME/.jupyter/jupyter_server_config.json
+{
+  "ServerApp": {
+    "password": ""
+  }
+}
 EOF
 ```
 
@@ -126,7 +123,7 @@ PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
 eval "$(conda 'shell.zsh' hook)"
 conda activate jupyter
 cd ~
-/opt/homebrew/Caskroom/miniconda/base/envs/jupyter/bin/python -m jupyter lab
+/opt/homebrew/Caskroom/miniconda/base/envs/jupyter/bin/python -m jupyter lab --no-browser
 ```
 
 以上两个步骤也可以用 `echo` 命令替代：
@@ -138,7 +135,7 @@ PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
 eval "$(conda 'shell.zsh' hook)"
 conda activate jupyter
 cd ~
-/opt/homebrew/Caskroom/miniconda/base/envs/jupyter/bin/python -m jupyter lab
+/opt/homebrew/Caskroom/miniconda/base/envs/jupyter/bin/python -m jupyter lab --no-browser
 EOF
 ```
 
