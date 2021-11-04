@@ -67,136 +67,19 @@ end tell
 ```json
 [
   {
-    "key": "ctrl+shift+9",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "（$TM_SELECTED_TEXT$0）"},
-    "when": "editorTextFocus&&editorHasSelection"
-  },
-  {
-    "key": "ctrl+shift+'",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "“$TM_SELECTED_TEXT$0”"},
-    "when": "editorTextFocus&&editorHasSelection"
-  },
-  {
-    "key": "ctrl+'",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "‘$TM_SELECTED_TEXT$0’"},
-    "when": "editorTextFocus&&editorHasSelection"
-  },
-  {
-    "key": "ctrl+shift+[Backslash]",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "【$TM_SELECTED_TEXT$0】"},
-    "when": "editorTextFocus&&editorHasSelection"
-  },
-  {
-    "key": "ctrl+shift+[Slash]",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "《$TM_SELECTED_TEXT$0》"},
-    "when": "editorTextFocus&&editorHasSelection"
-  },
-  {
-    "key": "ctrl+shift+[BracketRight]",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "「$TM_SELECTED_TEXT$0」"},
-    "when": "editorTextFocus&&editorHasSelection"
-  },
-  {
-    "key": "ctrl+shift+[BracketLeft]",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "『$TM_SELECTED_TEXT$0』"},
-    "when": "editorTextFocus&&editorHasSelection"
-  },
-  {
-    "key": "ctrl+alt+cmd+-",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": " —— "},
-    "when": "editorTextFocus&&editorHasSelection"
-  },
-  {
-    "key": "ctrl+shift+=",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": " $TM_SELECTED_TEXT$0 "},
-    "when": "editorTextFocus&&editorHasSelection"
-  },
-  {
-    "key": "ctrl+shift+-",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "<p></p>"},
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+alt+cmd+a",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "<a href=\"\" target=\"_blank\">$TM_SELECTED_TEXT$0</a>"},
-    "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
-  },  
-  {
-    "key": "ctrl+alt+cmd+b",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "<strong>$TM_SELECTED_TEXT$0</strong>"},
-    "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
-  },
-  {
-    "key": "ctrl+alt+cmd+i",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "<em>$TM_SELECTED_TEXT$0</em>"},
-    "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
-  },
-  {
-    "key": "ctrl+alt+cmd+u",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "<u>$TM_SELECTED_TEXT$0</u>"},
-    "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
-  },
-  {
-    "key": "ctrl+alt+cmd+d",
-    "command": "editor.action.insertSnippet",
-    "args": {"snippet": "<del>$TM_SELECTED_TEXT$0</del>"},
-    "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
-  },{
-    "key": "ctrl+tab",
-    "command": "cursorRight",
-    "when": "editorTextFocus&&!editorHasSelection"
-  },
-  {
-    "key": "ctrl+alt+cmd+backspace",
-    "command": "editor.emmet.action.removeTag"
-  },
-  {
-    "key": "ctrl+shift+right",
-    "command": "editor.emmet.action.matchTag",
-    "when": "editorTextFocus&&editorLangId==html"
-  },
-  {
-    "key": "ctrl+shift+l",
-    "command": "editor.emmet.action.wrapWithAbbreviation"
-  },
-  {
-    "key": "cmd+k b",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
-  {
-    "key": "shift+alt+d",
-    "command": "editor.action.duplicateSelection"
-  }
-  ,{
-    "key": "ctrl+alt+cmd+\\",
-    "command": "ssmacro.macro",
-    "args": {"file": "regex.json"},
-    "when": "editorTextFocus"
-  }
-]
-```
-
-`regex.json`
-
-```json
-[
-  {
     "command": "expandLineSelection"
   },
+  {
+    "command": "ssmacro.replace",
+    "args": {
+        "info": "半角方括号",
+        "find": "\\[(.*?)\\]",
+        "replace": "$1",
+        "all": false,
+        "reg": true,
+        "flag": "gm"
+    }
+  },  
   {
     "command": "ssmacro.replace",
     "args": {
@@ -229,12 +112,46 @@ end tell
         "reg": true,
         "flag": "gm"
     }
+  },  
+  {
+    "command": "ssmacro.replace",
+    "args": {
+        "info": "弯引号之前的空格",
+        "find": "([\u4e00-\u9fa5])“",
+        "replace": "$1 “",
+        "all": false,
+        "reg": true,
+        "flag": "gm"
+    }
+  },  
+  {
+    "command": "ssmacro.replace",
+    "args": {
+        "info": "弯引号之后的空格",
+        "find": "”([\u4e00-\u9fa5])",
+        "replace": "” $1",
+        "all": false,
+        "reg": true,
+        "flag": "gm"
+    }
+  },
+
+  {
+    "command": "ssmacro.replace",
+    "args": {
+        "info": "中文斜体转换成中文加重",
+        "find": "<i (.*?)>([\u4e00-\u9fa5]+)</i>",
+        "replace": "<strong $1>$2</strong>",
+        "all": false,
+        "reg": true,
+        "flag": "gm"
+    }
   },
   {
     "command": "ssmacro.replace",
     "args": {
         "info": "省略号",
-        "find": "\\.{2,}\\s*",
+        "find": "\\.{2,}\\s*。*\\s*",
         "replace": "…… ",
         "all": false,
         "reg": true,
@@ -245,7 +162,7 @@ end tell
     "command": "ssmacro.replace",
     "args": {
         "info": "破折号",
-        "find": "&mdash；|—",
+        "find": "&mdash；|&mdash;",
         "replace": " —— ",
         "all": false,
         "reg": true,
