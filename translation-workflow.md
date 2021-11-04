@@ -22,8 +22,6 @@ ePubor Ultimate 也是个收费软件，能把旧版 Kindle 下载的电子书�
 * 为浏览器（Microsoft Edge 或者 Google Chrome）安装 Live Load 插件
 * 在 VSCode 中用快捷键 ```Ctrl + ` ``` 呼出显示在编辑器区域下部的 Terminal，输入 `serve` 命令……
 
-（注意：在使用 VSCode 的时候，如果某些快捷键不起作用，很可能是因为 “当前输入法处于中文输入状态” 造成的。切换成英文输入法状态就好了……）
-
 更多参见这篇文章：
 
 https://medium.com/@svinkle/start-a-local-live-reload-web-server-with-one-command-72f99bc6e855
@@ -40,7 +38,9 @@ VSCode 的插件有很多，为了翻译任务，我只增加了以下三个插�
 
 ### vscode-deepl automation
 
-DeepL 的软件上，`Insert to...` 是一个链接，并没有给出快捷键。于是，需要写个 AppleScript，模拟鼠标点击，而后可以用 Alfred 软件里，给这个脚本设定个快捷键：
+DeepL 的软件上，`Insert to...` 是一个链接，并没有给出快捷键。于是，需要写个 AppleScript，模拟鼠标点击，而后可以用 Alfred 软件里，给这个脚本设定个快捷键（我设置的快捷键是 “ctrl+alt+cmd+p”）：
+
+![](images/alfred-applescript.png)
 
 ```applescript
 tell application "Visual Studio Code"
@@ -53,6 +53,7 @@ tell application "Visual Studio Code"
 		key code 8 using command down
 	end tell
 end tell
+-- 以上是 cmd+l 选中当前整行；而后连续两次 cmd+c 将选中文字发给 DeepL
 
 delay 5
 
@@ -66,6 +67,10 @@ tell application "Visual Studio Code"
 	end tell
 end tell
 
+-- 以上是在 VSCode 中输入两个空行
+
+-- 以下是模拟鼠标点击，按 DeepL 上的 “Insert to...” 链接
+-- 也可以将以下部分，独立出来，单独为 “Insert to...” 设置个快捷键（我设置的是 “ctrl+alt+cmd+i”）
 tell application "System Events"
 	tell process "DeepL" to tell window 1
 		activate
@@ -85,6 +90,8 @@ end tell
 ```
 
 ### 各种为翻译工作设定的快捷键
+
+注意：在使用 VSCode 的时候，如果某些快捷键不起作用，很可能是因为 “当前输入法处于中文输入状态” 造成的。切换成英文输入法状态就好了…… 我最初的时候，设置了个快捷键，`ctrl+cmd+alt+\\`，这个快捷键就遇到了 “与输入法” 有所冲突的情况。后来，将这个快捷键改成了 `ctrl+cmd+alt+o`，就不受输入法影响了。
 
 `keybindings.json`
 ```json
@@ -156,25 +163,25 @@ end tell
     "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
   },  
   {
-    "key": "ctrl+alt+cmd+b",
+    "key": "shift+ctrl+b",
     "command": "editor.action.insertSnippet",
     "args": {"snippet": "<strong>$TM_SELECTED_TEXT$0</strong>"},
     "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
   },
   {
-    "key": "ctrl+alt+cmd+i",
+    "key": "shift+ctrl+i",
     "command": "editor.action.insertSnippet",
     "args": {"snippet": "<em>$TM_SELECTED_TEXT$0</em>"},
     "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
   },
   {
-    "key": "ctrl+alt+cmd+u",
+    "key": "shift+ctrl+u",
     "command": "editor.action.insertSnippet",
     "args": {"snippet": "<u>$TM_SELECTED_TEXT$0</u>"},
     "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
   },
   {
-    "key": "ctrl+alt+cmd+d",
+    "key": "shift+ctrl+d",
     "command": "editor.action.insertSnippet",
     "args": {"snippet": "<del>$TM_SELECTED_TEXT$0</del>"},
     "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
@@ -205,7 +212,7 @@ end tell
     "command": "editor.action.duplicateSelection"
   }
   ,{
-    "key": "ctrl+alt+cmd+\\",
+    "key": "ctrl+alt+cmd+o",
     "command": "ssmacro.macro",
     "args": {"file": "regex.json"},
     "when": "editorTextFocus"
@@ -225,8 +232,6 @@ end tell
 ```
 
 其中的 `“args”: {“file”:“regex.json”},` 有两种写法，一个是像这样用 `“file”:` 指定，那么这个文件应该在 `$HOME/.vscode/extensions/joekon.ssmacro-0.6.0/macros/` 文件夹内；第二种写法使用 `“path”:`，然后在其后设定批处理文件（`json`文件）的绝对路径。推荐使用第一种方法的原因在于，第一种设置可以被 “云同步”。
-
-再次重申：在使用 VSCode 的时候，如果某些快捷键不起作用，很可能是因为 “当前输入法处于中文输入状态” 造成的。切换成英文输入法状态就好了……
 
 ### 为 ssmacro 设定的正则表达式批处理
 
