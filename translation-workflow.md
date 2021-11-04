@@ -10,7 +10,7 @@
 
 我都是在 Amazon 上直接买，而后在电脑上安装一个老版本的 Kindle App，用鼠标右键点击书名，下载，并不打开该电子书，而后退出 Kindle。
 
-[ePubor Ultimate](https://www.epubor.com/) 也是个收费软件，能把旧版 Kindle 下载的电子书的 DRM 去掉；将 `awz` 文件 `epub` 文件。
+[ePubor Ultimate](https://www.epubor.com/) 也是个收费软件，能把旧版 Kindle 下载的电子书的 DRM 去掉；将 `awz` 文件 `epub` 文件。（可参考这个[网页](https://www.epubor.com/how-to-downgrade-kindle-for-pcmac.html)）
 
 然后，再用免费软件 [Calibre](https://calibre-ebook.com/) 将 `epub` 转换成 `htmlz` 文件（一个压缩包）。（我尝试过使用命令行工具包 [pandoc](https://pandoc.org/)，但，比较之后，发现 Calibre 在保留样式方面可能更好一点……）
 
