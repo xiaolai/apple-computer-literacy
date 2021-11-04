@@ -227,7 +227,7 @@ end tell
 
 ```json
   {
-    "key": "ctrl+alt+cmd+\\",
+    "key": "ctrl+alt+cmd+o",
     "command": "ssmacro.macro",
     "args": {"file": "regex.json"},
     "when": "editorTextFocus"
