@@ -439,3 +439,7 @@ end tell
   }
 ]
 ```
+
+用 ssmacro 批处理进行正则表达式替换的效果大致如下：
+
+![](images/cn-regex-vscode.gif)
