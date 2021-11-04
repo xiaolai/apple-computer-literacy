@@ -1,24 +1,46 @@
 # 翻译工作环境
 
+首先是文字编辑器的选择。我选择的是 Visual Studio Code —— 这是一个面向程序员设计的纯文本编辑器，但，并非只有程序员们才是用它…… 在进行翻译的时候，它成了最好的选择 —— 因为电子书目前最常见的格式都可以转换成 html 文本，用 MS Word 之类的编辑器事实上是很差的选择。另外，用 VSCode 可以做很多批处理 —— 不可或缺的功能。
+
 ## 电子书转换路径
 
 Kindle > ePubor Ultimate > Calibre > htmz > vscode editing.
 
+我都是在 Amazon 上直接买，而后在电脑上安装一个老版本的 Kindle App，用鼠标右键点击书名，下载，并不打开该电子书，而后退出 Kindle。
+
+ePubor Ultimate 也是个收费软件，能把旧版 Kindle 下载的电子书的 DRM 去掉；将 `awz` 文件 `epub` 文件。
+
+然后，再用免费软件 Calibre 将 `epub` 转换成 `htmlz` 文件（一个压缩包）。
+
+最后，再在 Terminal 里用 `unzip` 命令将 `htmlz` 文件解压缩。
+
+整理一下文件夹，休整并补充一下 `style.css`，配上 `toc.css` 和 `toc.js`；最终，形成一个左侧带有固定目录（方便浏览和编辑时跳转）的 `html` 文件……
+
 ## 浏览器自动重载（Auto-reload）
 
-参见这篇文章：
+* 为系统安装 nodejs 和 browser-sync
+* 为浏览器（Microsoft Edge 或者 Google Chrome）安装 Live Load 插件
+* 在 VSCode 中用快捷键 ```Ctrl + ` ``` 呼出显示在编辑器区域下部的 Terminal，输入 `serve` 命令……
+
+（注意：在使用 VSCode 的时候，如果某些快捷键不起作用，很可能是因为 “当前输入法处于中文输入状态” 造成的。切换成英文输入法状态就好了……）
+
+更多参见这篇文章：
 
 https://medium.com/@svinkle/start-a-local-live-reload-web-server-with-one-command-72f99bc6e855
 
 ## VS Code 插件
 
-* Chinese Translation
-* DeepL for Visual Studio Code
-* ssmacro
+VSCode 的插件有很多，为了翻译任务，我只增加了以下三个插件。
+
+* Chinese Translation（有时候 DeepL 会在简体中文中包含一些繁体中文内容，可以用这个插件提供的功能快速转换）
+* DeepL for Visual Studio Code（DeepL 的付费用户才能用到这个插件）
+* ssmacro（为 VSCode 提供 “批处理” 功能；对翻译工作来说，最重要的就是用它执行一系列的正则表达式替换）
 
 ## 一些代码
 
-`vscode-deepl automation`
+### vscode-deepl automation
+
+DeepL 的软件上，`Insert to...` 是一个链接，并没有给出快捷键。于是，需要写个 AppleScript，模拟鼠标点击，而后可以用 Alfred 软件里，给这个脚本设定个快捷键：
 
 ```applescript
 tell application "Visual Studio Code"
@@ -62,7 +84,151 @@ tell application "System Events"
 end tell
 ```
 
+### 各种为翻译工作设定的快捷键
+
 `keybindings.json`
+```json
+[
+  {
+    "key": "ctrl+shift+9",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "（$TM_SELECTED_TEXT$0）"},
+    "when": "editorTextFocus&&editorHasSelection"
+  },
+  {
+    "key": "ctrl+shift+'",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "“$TM_SELECTED_TEXT$0”"},
+    "when": "editorTextFocus&&editorHasSelection"
+  },
+  {
+    "key": "ctrl+'",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "‘$TM_SELECTED_TEXT$0’"},
+    "when": "editorTextFocus&&editorHasSelection"
+  },
+  {
+    "key": "ctrl+shift+[Backslash]",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "【$TM_SELECTED_TEXT$0】"},
+    "when": "editorTextFocus&&editorHasSelection"
+  },
+  {
+    "key": "ctrl+shift+[Slash]",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "《$TM_SELECTED_TEXT$0》"},
+    "when": "editorTextFocus&&editorHasSelection"
+  },
+  {
+    "key": "ctrl+shift+[BracketRight]",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "「$TM_SELECTED_TEXT$0」"},
+    "when": "editorTextFocus&&editorHasSelection"
+  },
+  {
+    "key": "ctrl+shift+[BracketLeft]",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "『$TM_SELECTED_TEXT$0』"},
+    "when": "editorTextFocus&&editorHasSelection"
+  },
+  {
+    "key": "ctrl+alt+cmd+-",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": " —— "},
+    "when": "editorTextFocus&&editorHasSelection"
+  },
+  {
+    "key": "ctrl+shift+=",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": " $TM_SELECTED_TEXT$0 "},
+    "when": "editorTextFocus&&editorHasSelection"
+  },
+  {
+    "key": "ctrl+shift+-",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "<p></p>"},
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+cmd+a",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "<a href=\"\" target=\"_blank\">$TM_SELECTED_TEXT$0</a>"},
+    "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
+  },  
+  {
+    "key": "ctrl+alt+cmd+b",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "<strong>$TM_SELECTED_TEXT$0</strong>"},
+    "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
+  },
+  {
+    "key": "ctrl+alt+cmd+i",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "<em>$TM_SELECTED_TEXT$0</em>"},
+    "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
+  },
+  {
+    "key": "ctrl+alt+cmd+u",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "<u>$TM_SELECTED_TEXT$0</u>"},
+    "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
+  },
+  {
+    "key": "ctrl+alt+cmd+d",
+    "command": "editor.action.insertSnippet",
+    "args": {"snippet": "<del>$TM_SELECTED_TEXT$0</del>"},
+    "when": "editorTextFocus&&editorHasSelection&&editorLangId==html"
+  },{
+    "key": "ctrl+tab",
+    "command": "cursorRight",
+    "when": "editorTextFocus&&!editorHasSelection"
+  },
+  {
+    "key": "ctrl+alt+cmd+backspace",
+    "command": "editor.emmet.action.removeTag"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "editor.emmet.action.matchTag",
+    "when": "editorTextFocus&&editorLangId==html"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "editor.emmet.action.wrapWithAbbreviation"
+  },
+  {
+    "key": "cmd+k b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "shift+alt+d",
+    "command": "editor.action.duplicateSelection"
+  }
+  ,{
+    "key": "ctrl+alt+cmd+\\",
+    "command": "ssmacro.macro",
+    "args": {"file": "regex.json"},
+    "when": "editorTextFocus"
+  }
+]
+```
+
+以上的最后一段：
+
+```json
+  {
+    "key": "ctrl+alt+cmd+\\",
+    "command": "ssmacro.macro",
+    "args": {"file": "regex.json"},
+    "when": "editorTextFocus"
+  }
+```
+
+其中的 `“args”: {“file”:“regex.json”},` 有两种写法，一个是像这样用 `“file”:` 指定，那么这个文件应该在 `$HOME/.vscode/extensions/joekon.ssmacro-0.6.0/macros/` 文件夹内；第二种写法使用 `“path”:`，然后在其后设定批处理文件（`json`文件）的绝对路径。推荐使用第一种方法的原因在于，第一种设置可以被 “云同步”。
+
+再次重申：在使用 VSCode 的时候，如果某些快捷键不起作用，很可能是因为 “当前输入法处于中文输入状态” 造成的。切换成英文输入法状态就好了……
+
+### 为 ssmacro 设定的正则表达式批处理
 
 ```json
 [
