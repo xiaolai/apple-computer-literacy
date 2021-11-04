@@ -257,7 +257,7 @@ $ git -C "$(brew --repo homebrew/core)" remote set-url origin https://github.com
 $ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://github.com/Homebrew/homebrew-cask
 
 # zsh 注释掉 HOMEBREW_BOTTLE_DOMAIN 配置
-$ suble ~/.zshrc
+$ subl ~/.zshrc
 # export HOMEBREW_BOTTLE_DOMAIN=xxxxxxxxx
 
 # bash 注释掉 HOMEBREW_BOTTLE_DOMAIN 配置
@@ -532,7 +532,7 @@ bashbrew update && brew upgrade && brew cleanup && mas upgrade
 >
 > 不能在此之前卸载 Homebrew 😅
 
-卸载单个软件，用 `brew uninstall <package name>` 命令即可，比如，``brew uninstall shadowsocksx-ng-r`。若是想要卸载所有通过 Homebrew 安装的软件，那么，执行以下命令即可：
+卸载单个软件，用 `brew uninstall <package name>` 命令即可，比如，`brew uninstall shadowsocksx-ng-r`。若是想要卸载所有通过 Homebrew 安装的软件，那么，执行以下命令即可：
 
 ```bash
 brew remove --force $(brew list) --ignore-dependencies  
