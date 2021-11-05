@@ -519,7 +519,7 @@ mas install 497799835 	## Xcode
 如此这般之后，我就可以用以下一行命令升级电脑里的所有软件了……
 
 ```bash
-bashbrew update && brew upgrade && brew cleanup && mas upgrade
+brew update && brew upgrade && brew cleanup && mas upgrade
 ```
 
 ## 9. Massed up
