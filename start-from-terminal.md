@@ -485,7 +485,7 @@ done;
 尚未安装 `mas` 的话，用 `brew install mas` 安装。`mas` 命令的用法如下：
 
 ```bash
-mas list		# 列出 App Store 中已安装的软件
+mas list	# 列出 App Store 中已安装的软件
 mas upgrade	# 升级所有 App Store 中的软件
 mas search	# 搜索某软件的安装 ID
 mas install <software id>	# 安装某软件
@@ -496,23 +496,23 @@ mas install <software id>	# 安装某软件
 ```bash
 mas install 1333542190	## 1Password 7	密码管理软件
 mas install 1569813296	## 1Password for Safari	
-mas install 438292371		## Amadeus Pro	音频编辑软件，收费
+mas install 438292371	## Amadeus Pro	音频编辑软件，收费
 mas install 1487937127	## Craft	笔记管理软件，MacOS、iOS 通用，收费
 mas install 409222199 	## Cyberduck	可用 brew 安装，sftp 软件，但，我在 App Store 里付费了
 mas install 553245401 	## Friendly Streaming	收费视频平台聚合，我用它在电脑上看 Netflix 什么的
-mas install 682658836		## GarageBand	苹果的音乐工作室
+mas install 682658836	## GarageBand	苹果的音乐工作室
 mas install 1461845568	## Gifox	录屏软件，保存为 gif 动图
 mas install 1551462255	## GMRight Mouse Lite 与 Windows 系统相似的鼠标右键菜单增强；付费版本是 1555844307
 mas install 1474276998	## HP Smart	惠普打印机管理
-mas install 408981434		## iMovie	
+mas install 408981434	## iMovie	
 mas install 1136220934	## Infuse	我用它来播放局域网内的视频
-mas install 409183694		## Keynote	
+mas install 409183694	## Keynote	
 mas install 1295203466	## Microsoft Remote Desktop
-mas install 462054704		## Microsoft Word
-mas install 409203825		## Numbers
-mas install 409201541		## Pages
-mas install 485812721		## TweetDeck	Twitter 的桌面客户端，可多栏显示
-mas install 970502923		## Typeeto	可用电脑键盘为 iOS 输入
+mas install 462054704	## Microsoft Word
+mas install 409203825	## Numbers
+mas install 409201541	## Pages
+mas install 485812721	## TweetDeck	Twitter 的桌面客户端，可多栏显示
+mas install 970502923	## Typeeto	可用电脑键盘为 iOS 输入
 mas install 497799835 	## Xcode	
 ```
 
