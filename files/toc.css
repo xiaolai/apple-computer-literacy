@@ -1,0 +1,37 @@
+.toc-item {}
+
+.toc-item-label {}
+
+.toc-item-label.level-1 {
+  padding-left: 0px;
+  font-size: 18px;
+}
+
+.toc-item-label.level-2 {
+  padding-left: 8px;
+  font-size: 16px;
+}
+
+.toc-item-label.level-3 {
+  padding-left: 16px;
+  font-size: 14px;
+}
+
+.toc-item-label.level-4 {
+  padding-left: 24px;
+  font-size: 12px;
+}
+
+.toc-item-label.level-5 {
+  padding-left: 32px;
+  font-size: 10px;
+}
+
+.toc-item-label.level-6 {
+  padding-left: 32px;
+  font-size: 10px;
+}
+
+.toc-item-inner {
+  text-decoration: none;
+}
