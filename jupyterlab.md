@@ -84,7 +84,18 @@ jupyter lab
 ```bash
 jupyter notebook --generate-config
 ```
-
+如果出现以下错误,则是ssl版本需要升级
+```shell
+/usr/local/opt/openssl/lib/libssl.1.0.0.dylib' (no such file)
+```
+升级ssl方案
+```shell
+1. 使用国内镜像 执行如下命令
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+2. 更新ssl版本
+brew install rbenv/tap/openssl@1.0
+ln -sfn /usr/local/Cellar/openssl@1.0/1.0.2t /usr/local/opt/openssl
+```
 生成的配置文件保存在 `./jupyter/` 文件夹中，用 Sublime Text 打开 `jupyter_server_config.json` （当然，你用系统自带的免费的但愚蠢的 Text Edit 也行），把 `password` 改成空字符串：
 
 ```json
