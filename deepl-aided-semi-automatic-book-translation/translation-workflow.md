@@ -184,6 +184,7 @@ tell application "Visual Studio Code"
 		key code 124 using command down
 		key code 124 using command down
 		key code 36 using command down
+		key code 36 using command down
 	end tell
 end tell
 
