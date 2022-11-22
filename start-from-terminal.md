@@ -519,7 +519,7 @@ mas install 497799835 	## Xcode
 如此这般之后，我就可以用以下一行命令升级电脑里的所有软件了……
 
 ```bash
-brew update && brew upgrade && brew tap buo/cask-upgrad && brew cu --all --force && brew cleanup && mas upgrade
+brew update && brew upgrade && brew tap buo/cask-upgrad && yes | brew cu --all --force && brew cleanup && mas upgrade
 ```
 
 注意，`brew upgrade` 不会更新通过	`--cask` 安装的软件，所以，需要 `brew tap buo/cask-upgrad && brew cu --all --force` 才行……
