@@ -1,5 +1,15 @@
 # Kindle
 
+### 更新：
+
+以下所提到的 1）使用 Android Studio 模拟器；2）使用 Sideloadly，都很麻烦…… 后来我找到了一个可以在 MacOS 上运行的 Kindle (for iPad) —— [Kindle.zip](https://github.com/xiaolai/apple-computer-literacy/raw/main/files/Kindle.zip)…… 下载解压缩之后，拖拽保存到 `/Applications/` 中即可 —— 我是把它重命名为 "`Kindle for iPad`" 之后再用的。
+
+想要调整字体和背景颜色之前，要在设置中（打开程序后，按 `⌘ ,`，即，`CMD + ,`，即可呼出设置对话框）将 `Touch Alternatives` 设置为 `On`：
+
+![](./images/kindle-for-ipad-settings.png)
+
+----
+
 这些年我在 Amazon 上买了几近千本的电子书（其中相当一部分配有有声版的 Audiobook）。在 iOS（iPad/iPhone）上体验还算可以，有 Kindle App，也有 Audible App —— 唯一的缺陷是，每次换设备的时候，都得重新下载一遍，并且，Amazon 的开发人员执拗地在这么多年过后也不给加一个「全部下载」的方式…… 我甚至开始不讲道理地怀疑这帮鸟人自己的 Kindle 里都不超过十本书，所以才不把「下载全部」当回事儿。
 
 MacOS 上一直就没有 Audible，得通过 iTunes 转手一遍，非常讨厌；而 Kindle App 就更讨厌了，一直保持着远古时代的 UI 不说，这都好多年了，坚决不给加上「如果有配套有声书的话就可以边朗读边划线阅读」的功能 —— 而这功能恰恰是 iOS 上的 Kindle App 最令人喜欢的，乃至于其它功能差一点都能因此忍受的……
