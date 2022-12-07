@@ -463,9 +463,9 @@ brew install wechat     # 微信桌面版
 
 ```shell
 #!/bin/zsh
-PACAGES="git wget tree mas yt-dlp symboliclinker appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora "
+PACKAGES="git wget tree mas yt-dlp symboliclinker appcleaner onyx cleanmymac bettertouchtool alfred blackhole-64ch sublime-text visual-studio-code typora "
 
-for p in $PACAGESter; do
+for p in $PACKAGES; do
 	if (echo $(brew list)  | fgrep -q $p); then
 		echo "$p has already installed."
 	else
