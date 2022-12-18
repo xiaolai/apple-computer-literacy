@@ -26,7 +26,7 @@ code --extensions-dir $HOME/.vscode/js/extentions --user-data-dir $HOME/.vscode/
 * 在 `~/.vscode/js/extentions/` 里保存扩展插件；
 * 在 `~/.vscode/js/user/` 里保存用户设置……
 
-## 极简版本 VSCode 
+## 极简版本 VSCode（方案一）
 
 很多的时候，我们只想快速编辑一个文本文件，那么，VS Code 的默认洁面就显得 “臃肿” 和 “多余” 了…… 可以专门设定一个 “极简版本”。
 
@@ -57,7 +57,6 @@ code --user-data-dir $HOME/.vscode/minicode --extensions-dir $HOME/.vscode/minic
         ".editor-group-container .title *": "display: none;",
         ".editor-group-container .title": "pointer-events: none;",
         ".editor-group-container.empty": "-webkit-app-region: drag;",
-        ".monaco-editor .scroll-decoration": "box-shadow: none;"
     },
     "customizeUI.titleBar": "inline",
     "debug.console.fontFamily": "SauceCodePro Nerd Font Mono",
@@ -149,3 +148,17 @@ alias mcode="code --user-data-dir $HOME/.vscode/minicode --extensions-dir $HOME/
 编辑文件时的状态：
 
 ![](images/minicode-editing-settings-json.png)
+
+## 极简版本 VSCode（方案二）
+
+这个方案是使用 Visual Studio Code 的 [Portable Mode](https://code.visualstudio.com/docs/editor/portable)。以下以 MacOS 为例：
+
+1. 创建一个文件夹，如，`/Applications/mcode`；而后下载 Visual Studio Code，解压缩，放到 `mcode` 文件夹中，将 `Visual Studio Code.app` 重命名为 `mcode.app`；
+2. 在 `mcode` 文件夹中创建一个名为 `code-portable-data` 的文件夹；
+3. 双击 `mcode.app` 打开这个 Portable 版本的 Visual Studio Code；
+4. 安装 `Github Theme` 和 `Customize UI` 插件；
+5. 在 `User Settings (JSON)` 里复制粘贴方案一里一样的内容；
+6. 在命令行中执行 `ln -s /Applications/mcode/mcode.app/Contents/Resources/app/bin/code /opt/homebrew/bin/mcode`
+
+
+如此这般之后，mcode 事实上就是一个独立的极简版 VSCode，并且不妨碍正常安装的 VSCode 的使用。
