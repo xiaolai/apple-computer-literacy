@@ -24,4 +24,25 @@ brew install alfred
 
 应该花点时间研究一下 Github 上的 [Awesome Alfred](https://github.com/alfred-workflows/awesome-alfred-workflows) 的仓库，里面有很多方便且必须的 Alfred Workflow……
 
-另外，Alfred 的一些脚本需要 Python@2，但，MacOX 的最近版本中已经废弃了 Python 2.7…… 一个解决方案就是[去官网下载并安装 Python 2.7](https://www.python.org/downloads/release/python-2718/)，之后，在 Alfred 中需要使用 Python 2.7 的时候选择 `/usr/local/bin/python` 作为脚解释器……
+另外，Alfred 的一些脚本（比如上面提到的 USS）需要 Python@2，但，MacOX 的最近版本中已经废弃了 Python 2.7…… 一个解决方案就是[去官网下载并安装 Python 2.7](https://www.python.org/downloads/release/python-2718/)，之后，在 Alfred 中需要使用 Python 2.7 的时候选择 `/usr/local/bin/python` 作为脚解释器……
+
+Alfred 的 `Run Script` 中，没有办法指定 Python 的安装目录（比如，通过 Homebrew 安装的 Python3）。
+
+![](images/alfred-script-path.png)
+
+XCode 在系统中安装了一个 `/usr/bin/python3` 和 `usr/bin/pip3`，是 Alfred 可以调用的。所以，当需要为这个环境安装模块的时候，要在命令行中执行：
+
+```bash
+/usr/bin/pip3 install ....
+```
+
+以下是一个例子（用来将英文转换成 IPA 音标 —— 可处理句子）
+
+![](images/alfred-script-python3-example.png)
+
+
+在此之前，就需要在命令行中用 `/usr/bin/pip3` 安装 `eng-to-ipa` 模块：
+
+```bash
+/usr/bin/pip3 install eng-to-ipa     
+```
