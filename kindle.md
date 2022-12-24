@@ -1,15 +1,5 @@
 # Kindle
 
-### 更新：
-
-以下所提到的 1）使用 Android Studio 模拟器；2）使用 Sideloadly，都很麻烦…… 后来我找到了一个可以在 MacOS 上运行的 Kindle (for iPad) —— [Kindle.zip](https://github.com/xiaolai/apple-computer-literacy/raw/main/files/Kindle.zip)…… 下载解压缩之后，拖拽保存到 `/Applications/` 中即可 —— 我是把它重命名为 "`Kindle for iPad`" 之后再用的。
-
-想要调整字体和背景颜色之前，要在设置中（打开程序后，按 `⌘ ,`，即，`CMD + ,`，即可呼出设置对话框）将 `Touch Alternatives` 设置为 `On`：
-
-![](./images/kindle-for-ipad-settings.png)
-
-----
-
 这些年我在 Amazon 上买了几近千本的电子书（其中相当一部分配有有声版的 Audiobook）。在 iOS（iPad/iPhone）上体验还算可以，有 Kindle App，也有 Audible App —— 唯一的缺陷是，每次换设备的时候，都得重新下载一遍，并且，Amazon 的开发人员执拗地在这么多年过后也不给加一个「全部下载」的方式…… 我甚至开始不讲道理地怀疑这帮鸟人自己的 Kindle 里都不超过十本书，所以才不把「下载全部」当回事儿。
 
 MacOS 上一直就没有 Audible，得通过 iTunes 转手一遍，非常讨厌；而 Kindle App 就更讨厌了，一直保持着远古时代的 UI 不说，这都好多年了，坚决不给加上「如果有配套有声书的话就可以边朗读边划线阅读」的功能 —— 而这功能恰恰是 iOS 上的 Kindle App 最令人喜欢的，乃至于其它功能差一点都能因此忍受的……
@@ -127,3 +117,95 @@ adb shell su root "date $(date +%m%d%H%M)"
 
 补充 3：除了安装 Android 模拟器这个方法之外，还有另外一个办法，用 [Sideloadly](https://sideloadly.io/) —— 官网上的教程已经足够详细。问题在于，到哪里去找 Unsigned IPA。三个办法，1）自己越狱一个 iOS 设备，而后继续折腾；2）用 Tor-Browser 到 https://appdb.to 找；3）直接用这个两个链接下载（不保证随时更新）[Kindle](https://github.com/xiaolai/apple-computer-literacy/raw/main/files/Kindle.ipa)、[Audible](https://github.com/xiaolai/apple-computer-literacy/raw/main/files/Audible.ipa)。
 
+在用 Sideloadly 制作的 Kindle App 中，想要调整字体和背景颜色之前，要在设置中（打开程序后，按 `⌘ ,`，即，`CMD + ,`，即可呼出设置对话框）将 `Touch Alternatives` 设置为 `On`：
+
+![](./images/kindle-for-ipad-settings.png)
+
+-----
+
+## 更多与 Kindle/Audible 有关的话题
+
+### 1. epub
+
+Kindle 书籍 (`awz3` 文件）是有 DRM 加密的（digital rights management）。但，自己购买的书，还是有办法解密并转换成 epub 格式，只不过，麻烦一点，贵一点。
+
+首先是得购买一个 Kindle 物理设备 —— 这样你才会有一个 `Serial Number` —— 在设备的设置中，或者 Amazon 的 [Device Managment](https://www.amazon.com/hz/mycd/digital-console/alldevices) 页面中能够找到。
+
+我用的是收费软件 [ePubor](https://www.epubor.com/)。在它的设置中，填写你的 `Kindle Device Serial Number`：
+
+![](images/epubor-kindle-sn.png)
+
+而后就可以用 Epubor 将自己购买的书籍从 `awz3` 文件转换为 `epub` 格式了；至于已购书籍文件，可以在 Amanzon 网站中的 [Content Management](https://www.amazon.com/hz/mycd/digital-console/contentlist/allcontent/dateDsc) 中下载。
+
+![](images/awz3-download.png)
+
+### 2. mp3
+
+收费软件 [OpenAudible](https://openaudible.org/) 可以经过 Amazon 登录授权之后，将所有已购有声书下载到本地，并将其转换成 `mp3/m4a/m4b` 格式。
+
+### 3. Calibre
+
+我自己是用命令行的 pandoc 处理 `epub` 格式转换（比如转换成可编辑的 html），但，更多人可能需要图形界面，那就只能是 [Calibre](https://calibre-ebook.com/) 了。
+
+```bash
+brew install --cask calibre
+```
+
+有了 [DeepL](https://www.deepl.com) 之后，我购书不再只限于英文了，因为任何语言的书都可以转换格式之后提交 DeepL 自动翻译，还可以写脚本处理文本渲染格式。
+
+### 4. Whisper
+
+Whisper 是 [OpenAI](https://openai.com) 推出的语音转换文字的人工智能工具包，支持很多种语言。在 github 上，有一个项目，[Whisper Auto Transcribe](https://github.com/tomchang25/whisper-auto-transcribe)，在本地机器上配置好 Python 环境之后，就可以用这个软件为 `mp3` 有声书配上 “字幕”（`srt`、`vtt` 格式）。在我的 Macbook Air M2 上，文字转换时间大约比有声书的总时长稍微短一点，如果有条件用 GPU 加速的话，一本 14 小时的书，差不多 40 分钟就能弄完。
+
+### 5. iina
+
+[iina](https://iina.io/) 是一款基于 [mpv](https://mpv.io/) 的媒体播放器，界面很好看。
+
+```bash
+brew install --cask iina
+```
+
+在 iina 的设置里，`iina → Settings → Advanced`：
+
+* 开启 `Enable advanced settings`
+* 勾选 `Use config directory`
+
+创建 mpv 的设置文件，在 `~/.config/mpv/mpv.conf` 文件中添加以下内容：
+
+```
+[extension.mp3]
+profile-desc="profile for audiobooks"
+audio-display=external-first
+cover-art-auto=all
+sub-auto=all
+sub-align-x=left
+sub-margin-x=100
+sub-pos=85
+sub-font-size=50
+save-position-on-quit=yes
+stop-screensaver=always
+```
+
+播放 `mp3` 有声书的时候，`mp3` 文件、`srt` 文件，以及一个封面图片文件放在同一个目录：
+
+```code
+.
+├── Basic Economics, Fifth Edition.mp3
+├── Basic Economics, Fifth Edition.srt
+└── audiobook.png
+```
+
+然后用 iina 打开 `mp3` 文件：
+
+![](images/iina-playing-audiobook.png)
+
+有用的快捷键：
+
+* 转到上一条字幕位置: `Shift + Left`
+
+* 转到下一条字幕位置: `Shift + Right`
+* 音乐播放模式转换: `Option + Command + m`
+* 放大窗口: `Command + =`
+* 缩小窗口: `Command + -`
+
+----
