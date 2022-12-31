@@ -11,7 +11,7 @@ Settings UI 里没有对 Font-Weight 的选项，所以，只能在 `settings.js
     // 相当于 ExtraLight：
     "editor.fontWeight": "200",
     // 不要忘记设置 Terminal 窗口的字体
-    "terminal.integrated.fontSize": 16,  
+    "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontWeight": "200",
 ```
 
@@ -31,12 +31,12 @@ code --extensions-dir $HOME/.vscode/js/extentions --user-data-dir $HOME/.vscode/
 很多的时候，我们只想快速编辑一个文本文件，那么，VS Code 的默认洁面就显得 “臃肿” 和 “多余” 了…… 可以专门设定一个 “极简版本”。
 
 ### 1. 在 Termial 中执行以下命令：
-   
+
 ```bash
 code --user-data-dir $HOME/.vscode/minicode --extensions-dir $HOME/.vscode/minicode/extentions
 ```
 
-这个意思是说，在 `~/.vscode/minicode` 下保存用户数据，在 `~/.vscode/minicode/extentions` 下保存为其安装的擦肩。
+这个意思是说，在 `~/.vscode/minicode` 下保存用户数据，在 `~/.vscode/minicode/extentions` 下保存为其安装的插件。
 
 ### 2. 在新打开的 VSCode 中，安装两个插件：
 
@@ -54,8 +54,8 @@ code --user-data-dir $HOME/.vscode/minicode --extensions-dir $HOME/.vscode/minic
      */
     "customizeUI.stylesheet": {
         ".decorationsOverviewRuler": "display: none;",
-        ".editor-group-container .title *": "display: none;",
-        ".editor-group-container .title": "pointer-events: none;",
+        ".editor-group-container.title *": "display: none;",
+        ".editor-group-container.title": "pointer-events: none;",
         ".editor-group-container.empty": "-webkit-app-region: drag;",
     },
     "customizeUI.titleBar": "inline",
@@ -157,7 +157,7 @@ alias mcode="code --user-data-dir $HOME/.vscode/minicode --extensions-dir $HOME/
 2. 在 `mcode` 文件夹中创建一个名为 `code-portable-data` 的文件夹；
 3. 双击 `mcode.app` 打开这个 Portable 版本的 Visual Studio Code；
 4. 安装 `Github Theme` 和 `Customize UI` 插件；
-5. 在 `User Settings (JSON)` 里复制粘贴方案一里一样的内容；
+5. 在 `User Settings (JSON)` 里复制粘贴与方案一中设置的同样内容；
 6. 在命令行中执行 `ln -s /Applications/mcode/mcode.app/Contents/Resources/app/bin/code /opt/homebrew/bin/mcode`
 
 
