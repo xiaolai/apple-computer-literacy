@@ -13,3 +13,8 @@ defaults write com.apple.dock persistent-apps -array; killall Dock
 ```
 
 …… 一下子清爽了！
+
+
+关于 MacOS 的各种 “默认设置”，参见：
+
+> https://macos-defaults.com/
