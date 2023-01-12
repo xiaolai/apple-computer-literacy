@@ -162,3 +162,7 @@ alias mcode="code --user-data-dir $HOME/.vscode/minicode --extensions-dir $HOME/
 
 
 如此这般之后，mcode 事实上就是一个独立的极简版 VSCode，并且不妨碍正常安装的 VSCode 的使用。
+
+另外，可以为 `mcode` 设置一个新的图标，以便容易区别：
+
+> https://github.com/dhanishgajjar/vscode-icons
