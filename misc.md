@@ -19,3 +19,7 @@ defaults write -g NSWindowShouldDragOnGesture -bool true
 ```bash
 defaults delete -g NSWindowShouldDragOnGesture
 ```
+
+## 2. 特殊文件夹图标
+
+在用户根目录下 `~` 创建一个文件夹，名为 `Developer`，而后在 Finder 中将其拖至侧边栏，将得到一个画有系统内建图标的文件夹图标 —— 更多，请参见[这篇文章](https://weblog.antranigv.am/posts/2023/02/hardcoded-folder-icons-in-macos/)。
