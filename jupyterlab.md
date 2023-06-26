@@ -4,6 +4,15 @@
 
 用 Jupyterlab 还可以极方便地编写一些短程序，测试并使用 —— 不仅仅是 Python…… 不过，我在 Jupyterlab 上还真的基本上只用 Python。
 
+-----
+==⚠️ 注意==：[Jupyter-Desktop](https://github.com/jupyterlab/jupyterlab-desktop) 已经发行一段时间了，有人觉得它不稳定，我用了一段时间觉得没什么问题。
+
+```bash
+brew install --cask jupyterlab
+```
+-----
+
+
 Jupyterlab 是个「服务器端」软件，只提供一个 WebUI，用浏览器访问。这也有点讨厌，因为你经常一不小心就彻底退出浏览器，相当于是不小心就把某个正在工作中的 Jupyterlab 给关掉了。在 MacOS 上运行 Jupyterlab 还有另外一个强迫症患者受不了的地方 —— 你得保持一个 Terminal 窗口开着…… 同样，你经常会一不小心就退出了整个 Terminal，导致 Jupyterlab「被迫退出」。
 
 于是，要折腾一番，才能让这个神器 Jupyterlab 妥帖地听话……
@@ -248,7 +257,7 @@ alias zs="subl ~/.zshrc" # 用 sublimetext 打开 ~/.zshrc 文件
 
 ```bash
 conda activate jupyter
-npm install nativefier -g 
+npm install nativefier -g
 cd ~/Applications
 curl https://github.com/xiaolai/apple-computer-literacy/raw/main/images/jupyterlab-app-icon.png --output jupyterlab-app-icon.png
 nativefier "http://localhost:8888" -i jupyterlab-app-icon.png
