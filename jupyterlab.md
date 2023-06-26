@@ -5,7 +5,7 @@
 用 Jupyterlab 还可以极方便地编写一些短程序，测试并使用 —— 不仅仅是 Python…… 不过，我在 Jupyterlab 上还真的基本上只用 Python。
 
 -----
-==⚠️ 注意==：[Jupyter-Desktop](https://github.com/jupyterlab/jupyterlab-desktop) 已经发行一段时间了，有人觉得它不稳定，我用了一段时间觉得没什么问题。
+**⚠️ 注意**：[Jupyter-Desktop](https://github.com/jupyterlab/jupyterlab-desktop) 已经发行一段时间了，有人觉得它不稳定，我用了一段时间觉得没什么问题。
 
 ```bash
 brew install --cask jupyterlab
