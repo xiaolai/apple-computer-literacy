@@ -10,6 +10,36 @@
 ```bash
 brew install --cask jupyterlab
 ```
+手动安装的话，到官网 [Jupyter-Desktop](https://github.com/jupyterlab/jupyterlab-desktop) 下载相应操作系统的版本。以下以 MacOS 版本为例。
+
+将下载文件解压缩，而后将 `JupyterLab.app` 拖入 `Applicatoins` 目录。
+
+双击 `JupyterLab.app` 的图标打开程序，第一次打开的时候，程序界面底部有一行字：
+
+![](images/jd-first-open.png)
+
+在随后的对话框里，有一个 `Install` 按钮：
+
+![](images/jd-install-bundled-environment.png)
+
+Python 环境安装完毕之后，点击 `Apply & Restart` 重启 `JupyterLab`:
+
+![](images/jd-be-installed.png)
+
+再次打开的 `JupyterLab` 的首屏底部那行字就没有了…… 有必要的话，以后可以再 `Settings`（设置）里做更改：
+
+![](images/jd-reopen.png)
+
+比如，我可能回去设置 `Working directory`（默认的工作目录），以方便地管理我的 notebook 文件：
+
+![](images/jd-settings-server.png)
+
+至此，JupyterLab Desktop 就安装完了，开发环境安装彻底傻瓜化了，一键完成。
+
+
+
+## 旧文（纯新手已经没必要这么折腾）
+
 -----
 
 
