@@ -130,3 +130,13 @@ make install
 ## 7. 删除词典
 
 在 `~/Library/Dictionaries` 目录中将词典的整个目录删掉即可。
+
+## 8. 捷径
+
+若是懒得折腾，可以在百度网盘下载一个压缩包，解压缩后，把其中三个词典目录挪到 `~/Library/Dictionaries` 目录之下即可，重新启动 Dictionary.app，`cmd+,` 在对话框里选择新安装的词典。
+
+链接: https://pan.baidu.com/s/1u7xXFmnKtCM6zmSq0Pbl0Q?pwd=9iwx 提取码: 9iwx 
+
+> * Cambridge Advanced Learner's Dictionary.dictionary
+> * Collins COBUILD Advanced Learner's Dictionary.dictionary
+> * Merriam-Webster's Collegiate Dictionary.dictionary
