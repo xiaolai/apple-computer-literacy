@@ -2,12 +2,22 @@
 
 ## 0. Mdict 格式词典下载
 
-[freemdict.com](https://downloads.freemdict.com/)
+[freemdict.com](https://downloads.freemdict.com/) 上有很多 Mdict 格式的词典文件。Mdict 的词典文件，通常由一个 `.mdx` 文件和一个 `.mdd` 文件构成，声音和图片都打包在 `.mdd` 文件之中。需要同时下载两个文件，放到同一个目录中进行处理。
+
+**推荐**
+
+* [Cambridge Advanced Learner's Dictionary 4ed](https://downloads.freemdict.com/Recommend/Collections/_Cambridge/CALD%204th/)
+* [Merriam-Webster's Collegiate Dictionary 11ed (Pic&Sound)](https://downloads.freemdict.com/Recommend/Collections/Merriam-Webster/Merriam-Webster/Merriam-Webster/)
+* [Longman Dictionary of Contemporary English 5ed](https://downloads.freemdict.com/Recommend/LDOCE5%2B%2B%20V%201-35.zip) 
+* [Collins CoBuild Advanced Learner's Dictionary](https://downloads.freemdict.com/Recommend/CollinsCOBUILDAdvancedLearner%E2%80%99sDictionaryOnline2017.zip)
+* [American Heritage Dictionary 5ed](https://downloads.freemdict.com/Recommend/AHD5.zip)
+
+事实上，前两个就已经足够了，两个都是有声词典……
 
 ## 1. 所需工具与环境
 
 ```bash
-# Python
+# Python (python 3.11.5 specified)
 conda create -n mdict python=3.11.5
 conda activate mdict
 pip install pyglossary lxml beautifulsoup4 html5lib
@@ -44,20 +54,24 @@ brew install ffmpeg
 
 ## 3. 转换 mdx
 
-下载 mdx 以及相应的 mdd 文件，之后，在同一目录下执行（以 `Merriam-Webster\'s_Collegiate_Dictionary_11th\(Pic\&Sound\).mdx` 为例）：
+`pyglossary` 使用方法如下：
+
+```bash
+pyglossary --write-format=AppleDict <mdx_file> <output_dir>
+```
+
+以 `Merriam-Webster\'s_Collegiate_Dictionary_11th\(Pic\&Sound\).mdx` 为例：
 
 ```bash
 pyglossary --write-format=AppleDict Merriam-Webster\'s_Collegiate_Dictionary_11th\(Pic\&Sound\).mdx "Merriam-Webster's Collegiate Dictionary"
 ```
 
-后面引号中的 `Merriam-Webster's Collegiate Dictionary` 将成为导入苹果内建词典后的名称。
-
 ## 4. spx 文件的转换
 
-将 `.spx` 文件转换为 `.mp3` 文件，需要使用 `speexdec` 和 `ffmpeg`：
+如果 `OtherResources` 目录里的声音文件原本就是 `.mp3` 就可以跳过这一步。但，如果是 `.spx` 的话，就需要将 `.spx` 文件转换为 `.mp3` 文件：
 
 ```bash
-# long time needed, like half an hour or so...
+# long time needed, possibly up to an hour or more...
 for file in *.spx; do
     # Decode the SPX to WAV
     speexdec "$file" "${file%.spx}.wav"
@@ -70,19 +84,31 @@ for file in *.spx; do
 done
 ```
 
-而后，`xml` 文件里的声音文件名也需要转换
+而后，`xml` 文件里的声音文件名也需要转换（可以提前用 vscode 或者 sublime text 打开 xml 查看一下，根据需要批量替换的字符串修改以下命令）
 
 ```bash
 sed -i '' 's/\.spx/\.mp3/g' file.xml
+```
+
+如果需要将 `.wav` 文件批量转换为 `.mp3`：
+
+```bash
+for file in *.wav; do
+    ffmpeg -i "$file" -f mp3 "${file%.wav}.mp3"
+    # Optionally remove the intermediate WAV file    
+    rm "$file"
+done
 ```
 
 ## 5. 其它定制信息
 
 `pyglossary` 生成的文件中，`.css` 文件，可根据自己需要修改。
 
+macOS 原生词典里面是不支持 `base64` 格式的字体文件的，所以我们需要手动将原先css里面base64格式的字体转换成它原来的样子并放到 `Contents` 文件夹下。
+
 [Base64 Online - base64 decode and encode (motobit.com)](https://www.motobit.com/util/base64-decoder-encoder.asp)
 
-`.plist` 文件中，`CFBundleDisplayName` 是词典缩写（显示在词典的标签栏上），`CFBundleName` 是词典名称的完整名称（显示在 Preference 对话框中），可根据自己需要修改。
+`.plist` 文件中，`CFBundleName` 是词典缩写（显示在词典的标签栏上），`CFBundleDisplayName` 是词典名称的完整名称（显示在 Preference 对话框中），可根据自己需要修改。
 
 ## 6. 安装词典
 
