@@ -11,7 +11,7 @@
 Webcatalog 也可以通过 Homebrew 安装
 
 ```bash
-brew install webcatalog
+brew install --cask webcatalog
 ```
 
 值得一提的是，如此这般之后，我干脆不用 MacOS 上的 Mail 了，因为 Gmail 变成了 App。这里我用的最多的是，Coogle 和 Google Sheets —— 都是 Google 的。
