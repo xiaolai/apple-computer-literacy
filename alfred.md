@@ -8,8 +8,6 @@ Alfred 的图标，是个英式管家常戴的那种窄边圆礼帽 —— 当�
 brew install alfred
 ```
 
-
-
 ![](images/alfred-4-hero.png)
 
 我买的 License 是它的 [Mega Supporter, Free Lifetime Upgrades, £49](https://www.alfredapp.com/shop/) —— 在工具上省钱是没出息的。
@@ -46,3 +44,5 @@ XCode 在系统中安装了一个 `/usr/bin/python3` 和 `usr/bin/pip3`，是 Al
 ```bash
 /usr/bin/pip3 install eng-to-ipa     
 ```
+
+另外，我写了一个 [Window Managment Workflow](https://github.com/xiaolai/Window-Management-alfredworkflow)，可以指定各种快捷键设定当前窗口的尺寸和布局，值得试试……（有了这个之后，我基本放弃了 BetterTouchTool —— 我原本用它做窗口管理。）

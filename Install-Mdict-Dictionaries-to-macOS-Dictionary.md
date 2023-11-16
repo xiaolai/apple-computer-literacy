@@ -2,17 +2,19 @@
 
 ## 0. Mdict 格式词典下载
 
-[freemdict.com](https://downloads.freemdict.com/) 上有很多 Mdict 格式的词典文件。Mdict 的词典文件，通常由一个 `.mdx` 文件和一个 `.mdd` 文件构成，声音和图片都打包在 `.mdd` 文件之中。需要同时下载两个文件，放到同一个目录中进行处理。
+[freemdict.com](https://downloads.freemdict.com/) 和 [mdict.org](https://mdx.mdict.org/)上有很多 Mdict 格式的词典文件。Mdict 的词典文件，通常由一个 `.mdx` 文件和一个 `.mdd` 文件构成，声音和图片都打包在 `.mdd` 文件之中。需要同时下载两个文件，放到同一个目录中进行处理。
 
 **推荐**
 
 * [Cambridge Advanced Learner's Dictionary 4ed](https://downloads.freemdict.com/Recommend/Collections/_Cambridge/CALD%204th/)
 * [Merriam-Webster's Collegiate Dictionary 11ed (Pic&Sound)](https://downloads.freemdict.com/Recommend/Collections/Merriam-Webster/Merriam-Webster/Merriam-Webster/)
-* [Longman Dictionary of Contemporary English 5ed](https://downloads.freemdict.com/Recommend/LDOCE5%2B%2B%20V%201-35.zip) 
+* [Longman Dictionary of Contemporary English 6ed](https://downloads.freemdict.com/Recommend/Collections/_Longman/STFU%20LongmanBundle-%E7%BB%AE%E5%8F%A5%E6%85%A8%E9%90%97-By%20Amazon%2020160928/Longman%20Dictionary%20Of%20Contemporary%20English%206th%20EnEn)
+* [Longman Language Activator](https://downloads.freemdict.com/Recommend/longman-activator.zip)
 * [Collins CoBuild Advanced Learner's Dictionary](https://downloads.freemdict.com/Recommend/CollinsCOBUILDAdvancedLearner%E2%80%99sDictionaryOnline2017.zip)
 * [American Heritage Dictionary 5ed](https://downloads.freemdict.com/Recommend/AHD5.zip)
+* [Oxford Collocation Dictionary](https://mdx.mdict.org/%E5%85%AD%E5%A4%A7%E7%9F%A5%E5%90%8D%E8%AF%8D%E5%85%B8/%E7%89%9B%E6%B4%A5_Oxford/Oxford%20Collocations%20Dictionary_%2015-10-15/)
 
-事实上，前两个就已经足够了，两个都是有声词典……
+事实上，前两个就已经足够了（都是有声词典）……
 
 ## 1. 所需工具与环境
 
