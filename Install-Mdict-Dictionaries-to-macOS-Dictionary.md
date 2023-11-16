@@ -135,10 +135,13 @@ make install
 
 ## 8. 捷径
 
-若是懒得折腾，可以在百度网盘下载一个压缩包，解压缩后，把其中三个词典目录挪到 `~/Library/Dictionaries` 目录之下即可，重新启动 Dictionary.app，`cmd+,` 在对话框里选择新安装的词典。
+若是懒得折腾，可以在百度网盘下载一个压缩包，解压缩后，把其中六个词典目录挪到 `~/Library/Dictionaries` 目录之下即可，重新启动 Dictionary.app，`cmd+,` 在对话框里选择新安装的词典。
 
-链接: https://pan.baidu.com/s/1u7xXFmnKtCM6zmSq0Pbl0Q?pwd=9iwx 提取码: 9iwx 
+链接: https://pan.baidu.com/s/1TpYyYYdvFGsMLI65i7NBog?pwd=buqn 提取码: buqn
 
 > * Cambridge Advanced Learner's Dictionary.dictionary
 > * Collins COBUILD Advanced Learner's Dictionary.dictionary
 > * Merriam-Webster's Collegiate Dictionary.dictionary
+> * Longman Dictionary of Contemporary English 6ed.dictionary
+> * Longman Language Activator.dictionary
+> * Oxford Collocation Dictionary.dictionary
