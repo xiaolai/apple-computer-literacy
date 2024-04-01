@@ -1,3 +1,7 @@
+# NOTE
+
+Kindle 和 Audible 目前已经有官方的 Sidecar version 了，即，可以在 macOS 上运行的 iOS App…… 于是，以下内容已经没有必要。
+
 # Kindle
 
 这些年我在 Amazon 上买了几近千本的电子书（其中相当一部分配有有声版的 Audiobook）。在 iOS（iPad/iPhone）上体验还算可以，有 Kindle App，也有 Audible App —— 唯一的缺陷是，每次换设备的时候，都得重新下载一遍，并且，Amazon 的开发人员执拗地在这么多年过后也不给加一个「全部下载」的方式…… 我甚至开始不讲道理地怀疑这帮鸟人自己的 Kindle 里都不超过十本书，所以才不把「下载全部」当回事儿。
