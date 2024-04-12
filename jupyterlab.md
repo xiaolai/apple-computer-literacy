@@ -36,12 +36,18 @@ Python 环境安装完毕之后，点击 `Apply & Restart` 重启 `JupyterLab`:
 
 至此，JupyterLab Desktop 就安装完了，开发环境安装彻底傻瓜化了，一键完成。
 
+另外，关于 MacOS 上 `jlab` 命令行工具 `实际上并未安装` 这个 [bug](https://github.com/jupyterlab/jupyterlab-desktop/issues/655) 的解决（其实也谈不上是什么 bug，问题出在[MacOS 系统的读写权限默认设置……](https://github.com/jupyterlab/jupyterlab-desktop/blob/master/troubleshoot.md#macos-write-permission-issues)）：
 
+```bash
+sudo chmod 755 /Applications/JupyterLab.app/Contents/Resources/app/jlab
+sudo ln -s /Applications/JupyterLab.app/Contents/Resources/app/jlab /usr/local/bin/jlab
+```
+
+—— 当然，前提是 `.zshrc` 文件里定义过 `/usr/local/bin` 这个系统默认搜寻路径（$PATH）。
 
 ## 旧文（纯新手已经没必要这么折腾）
 
 -----
-
 
 Jupyterlab 是个「服务器端」软件，只提供一个 WebUI，用浏览器访问。这也有点讨厌，因为你经常一不小心就彻底退出浏览器，相当于是不小心就把某个正在工作中的 Jupyterlab 给关掉了。在 MacOS 上运行 Jupyterlab 还有另外一个强迫症患者受不了的地方 —— 你得保持一个 Terminal 窗口开着…… 同样，你经常会一不小心就退出了整个 Terminal，导致 Jupyterlab「被迫退出」。
 
