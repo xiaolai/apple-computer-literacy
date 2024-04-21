@@ -15,3 +15,5 @@ brew install --cask --no-quarantine brettferdosi/tap/grayscale
 ```
 
 安装完毕之后，还可以去 `System Preference > Login Items` 里把 Grayscale 这个应用添加到 `Open at Login` 列表中去。
+
+另外，iOS 里也有 `Color Filters` 开关，在 `System Preference` 里搜索 `Color Filters` 即可找到。
