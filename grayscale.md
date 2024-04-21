@@ -22,4 +22,4 @@ brew install --cask --no-quarantine brettferdosi/tap/grayscale
 
 ![](images/toggle-color-filters.png)
 
-而后将快捷方式 pin 到 Menubar 上，也很方便。
+而后将快捷方式 pin 到 Menubar 上（maOS），或者放置到屏幕上（iOS），也很方便。
