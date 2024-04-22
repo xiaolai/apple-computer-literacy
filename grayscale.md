@@ -23,3 +23,9 @@ brew install --cask --no-quarantine brettferdosi/tap/grayscale
 ![](images/toggle-color-filters.png)
 
 而后将快捷方式 pin 到 Menubar 上（maOS），或者放置到屏幕上（iOS），也很方便。
+
+另外，根据研究，Dark Mode 的确对护眼更有帮助 —— 毕竟黑色（深色）背景几乎不回反光。有一个 Alfred Workflow，可以用来设置快捷键，键盘切换 Light Mode 和 Dark Mode：
+
+> https://github.com/mermaid/alfred-dark-mode-toggle
+
+也就是说，Grayscale 和 Dark Mode 组合，可能更好一些。
