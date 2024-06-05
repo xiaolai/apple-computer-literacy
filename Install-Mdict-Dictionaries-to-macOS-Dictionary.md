@@ -145,3 +145,7 @@ make install
 > * Longman Dictionary of Contemporary English 6ed.dictionary
 > * Longman Language Activator.dictionary
 > * Oxford Collocation Dictionary.dictionary
+以下目录带'会导致声音文件读取不了。 挪到~/Library/Dictionaries目录之下，将这些目录名用驼峰命名法进行如下修改，重新启动 Dictionary.app，`cmd+,` 在对话框里选择新安装的词典。
+> * Cambridge Advanced LearnerS Dictionary.dictionary
+> * Collins COBUILD Advanced LearnerS Dictionary.dictionary
+> * Merriam-WebsterS Collegiate Dictionary.dictionary
