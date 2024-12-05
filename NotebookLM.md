@@ -91,7 +91,7 @@ osascript -e "display notification \"Output saved to: $OUTPUT_DIR\" with title \
 
 ![](images/quickaction-script.png)
 
-你也可以直接下载这个文件：[Convert EPUB to Markdown.workflow](https://raw.githubusercontent.com/xiaolai/apple-computer-literacy/main/files/Convert%20EPUB%20to%20Markdown.workflow)，将其保存到 `~/Library/Services` 文件夹中即可。
+你也可以直接下载这个文件：[Convert EPUB to Markdown.workflow](https://raw.githubusercontent.com/xiaolai/apple-computer-literacy/main/files/Convert%20EPUB%20to%20Markdown.zip)，将其保存到 `~/Library/Services` 文件夹中即可。
 
 继续回到 NotebookLM 工作流中：
 
