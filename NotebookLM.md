@@ -2,7 +2,7 @@
 
 [NotebookLM](https://notebooklm.google.com) 是 Google 推出的 “人工智能辅助笔记” 应用。用户上传文档（PDF/TXT/Markdown）至 NotebookLM 后，就可以向文档提问，由 AI 回答。
 
-除此之外，无论是论文还是书籍，NotebookLM 都可以为此生成一个 "Deep Dive Podcast"，大约 30 分钟左右的语音讲解。
+除此之外，无论是论文还是书籍，NotebookLM 都可以为此生成一个 "Deep Dive Podcast"，大约 30 分钟左右的两人对话语音讲解。
 
 目前（2024 年 12 月）的局限之一是只能用英语才能获得最佳效果。
 
@@ -11,18 +11,30 @@
 > 1. 先在 Kindle 上读完一本书（我觉得这一步绝对不能跳过）；
 > 2. 从自己的 [Content Library](https://www.amazon.com/hz/mycd/digital-console/contentlist/booksAll/dateDsc/) 里下载相应的 azw3 文件；
 > 3. 使用 ePubor 软件将其转换成 epub 文件（参见[这篇文章](kindle.md)）；
-4. 【待续……】
+> 4. 【待续……】
 
-我写了一个 Automator Quickaction —— 如此这般之后，在 Finder 里右键点击 epub 文件的时候，会多出一个 Context Menu: Convert EPUB to markdown……（
+我写了一个 Automator Quick Action —— 如此这般之后，在 Finder 里右键点击 epub 文件的时候，会多出一个 `Context Menu: Convert EPUB to markdown`……（
 
 ![](images/quickaction-context-menu.png)
 
-它会把 epub 文件转换成一个文件夹，其中有整本书的 txt 文件，以及拆分的各个章节的 markdown 文件，另外，epub 种原本包含的内容，在 html 子目录中。
+它会把 `epub` 文件转换成一个文件夹，其中有整本书的 `txt` 文件，以及拆分的各个章节的 `markdown` 文件，另外，`epub` 中原本包含的内容，在 `html` 子目录中。
 
-有一个前提：你的系统中安装了 pandoc 命令行工具 —— 如果没有的话，可以通过 `brew install` 命令安装。
+有一个前提：你的系统中安装了 `pandoc` 命令行工具 —— 如果没有的话，可以通过 `brew install` 命令安装。
 
 ```bash
 brew install pandoc
+```
+
+另外，你也需要检查一下系统内置的 `unzip` 是否存在：
+
+```bash
+which unzip
+```
+
+如果不存在的话，就用 `brew` 安装：
+
+```bash
+brew install unzip
 ```
 
 如果你想要自己用 Automator 写 Quick Action 的话，可以在 Quick Action 里添加以下 Shellscript 内容：
@@ -105,6 +117,4 @@ osascript -e "display notification \"Output saved to: $OUTPUT_DIR\" with title \
 > * List all metaphors and analogies in this file.
 > * List all phrasal verbs and idioms in this file, and provide concise Chinese translation of them according to the context.
 > * List all less common vocabulary in this file and provide phonetics, part of words, and concise Chinese translation according to the context.
-> * Provide a short list of "Further Rsading", recommend 5 best related books and scientific papers.
-
-
+> * Provide a short list of "Further Reading", recommend 5 best related books and scientific papers.
