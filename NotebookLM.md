@@ -81,25 +81,24 @@ fi
 # Copy all content from OEBPS to the output directory's html folder
 cp -R "$OEBPS_DIR"/* "$OUTPUT_DIR/html/"
 
-# Convert HTML files in the OEBPS folder to Markdown
-for HTML_FILE in "$OEBPS_DIR"/*.{html,xhtml}; do
-    if [ -f "$HTML_FILE" ]; then
-        BASENAME=$(basename "$HTML_FILE" .html)
-        BASENAME=$(basename "$BASENAME" .xhtml)  # Remove .xhtml if present
-        "$PANDOC_CMD" "$HTML_FILE" -o "$OUTPUT_DIR/$BASENAME.md"
-    fi
-done
+# Determine if the folder contains .html or .xhtml files
+if ls "$OEBPS_DIR"/*.html 1> /dev/null 2>&1; then
+    FILE_EXT="html"
+elif ls "$OEBPS_DIR"/*.xhtml 1> /dev/null 2>&1; then
+    FILE_EXT="xhtml"
+else
+    FILE_EXT=""
+fi
 
-# Convert the entire EPUB to a single TXT file
-FULL_TXT_FILE="$OUTPUT_DIR/$(basename "${EPUB_FILE%.epub}.txt")"
-"$PANDOC_CMD" "$EPUB_FILE" -o "$FULL_TXT_FILE"
-
-# Cleanup
-rm -rf "$TMP_DIR"
-rm "$ZIP_FILE"
-
-# Notify completion
-osascript -e "display notification \"Output saved to: $OUTPUT_DIR\" with title \"EPUB Processor\""
+# Convert files to Markdown if a valid file type is found
+if [ -n "$FILE_EXT" ]; then
+    for HTML_FILE in "$OEBPS_DIR"/*."$FILE_EXT"; do
+        if [ -f "$HTML_FILE" ]; then
+            BASENAME=$(basename "$HTML_FILE" ."$FILE_EXT")
+            "$PANDOC_CMD" "$HTML_FILE" -o "$OUTPUT_DIR/$BASENAME.md"
+        fi
+    done
+fi
 
 # Convert the entire EPUB to a single TXT file
 FULL_TXT_FILE="$OUTPUT_DIR/$(basename "${EPUB_FILE%.epub}.txt")"
