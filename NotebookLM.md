@@ -82,12 +82,24 @@ fi
 cp -R "$OEBPS_DIR"/* "$OUTPUT_DIR/html/"
 
 # Convert HTML files in the OEBPS folder to Markdown
-for HTML_FILE in "$OEBPS_DIR"/*.html; do
+for HTML_FILE in "$OEBPS_DIR"/*.{html,xhtml}; do
     if [ -f "$HTML_FILE" ]; then
         BASENAME=$(basename "$HTML_FILE" .html)
+        BASENAME=$(basename "$BASENAME" .xhtml)  # Remove .xhtml if present
         "$PANDOC_CMD" "$HTML_FILE" -o "$OUTPUT_DIR/$BASENAME.md"
     fi
 done
+
+# Convert the entire EPUB to a single TXT file
+FULL_TXT_FILE="$OUTPUT_DIR/$(basename "${EPUB_FILE%.epub}.txt")"
+"$PANDOC_CMD" "$EPUB_FILE" -o "$FULL_TXT_FILE"
+
+# Cleanup
+rm -rf "$TMP_DIR"
+rm "$ZIP_FILE"
+
+# Notify completion
+osascript -e "display notification \"Output saved to: $OUTPUT_DIR\" with title \"EPUB Processor\""
 
 # Convert the entire EPUB to a single TXT file
 FULL_TXT_FILE="$OUTPUT_DIR/$(basename "${EPUB_FILE%.epub}.txt")"
