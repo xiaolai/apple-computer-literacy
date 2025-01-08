@@ -579,6 +579,10 @@ sudo rm -rf /opt/Homebrew
 
 除了系统自带的 Terminal 之外，还有很多终端软件，比如 iTerm 之类。其中一个用起来很顺手也非常高性能的是 [Ghostty](https://ghostty.org)，可以试试。
 
+```bash
+brew install --cask ghostty
+```
+
 在 Terminal 中已经设置过的 `p10k` 在 Ghostty 里直接生效。
 
 Ghostty 的配置文件里，需要写的东西很少（更多配置可以参照[它的官方文档](https://ghostty.org/docs/config)）：
