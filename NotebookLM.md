@@ -72,6 +72,8 @@ if [ $? -ne 0 ]; then
 fi
 
 # Locate the OEBPS folder
+# When using Calibre to conver amz3 file to epub file, the name of the folder is "text". Thus, use the following line instead.
+# OEBPS_DIR=$(find "$TMP_DIR" -type d -name "text")
 OEBPS_DIR=$(find "$TMP_DIR" -type d -name "OEBPS")
 if [ -z "$OEBPS_DIR" ]; then
     rm -rf "$TMP_DIR" "$ZIP_FILE"
