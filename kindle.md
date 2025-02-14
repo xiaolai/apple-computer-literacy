@@ -83,4 +83,34 @@ stop-screensaver=always
 * 放大窗口: `Command + =`
 * 缩小窗口: `Command + -`
 
+### 6. Kindle Annotations
+
+在 Kindle 上，阅读过程中做的各种标记（Annotation），官方一直没有给出很好的导出方法（移动版上有通过邮件方式导出的方式 —— 真不知道开发者怎么想的）。
+
+但，可以通过访问 https://read.amazon.com/notebook ，然后再手动拷贝出某本书的标记，而后保存为 `.html` 文件，再想办法用 python 处理…… 虽然有点麻烦，但也没啥办法，我一直这么做 —— 具体步骤如下图所示：
+
+![](images/kindle-annotations.png)
+
+我用以下函数提取特定颜色的标记文本（默认选择 `yellow`）：
+
+```python
+from bs4 import BeautifulSoup
+
+def extract_kindle_annotations(file_path, color="yellow"):
+    # Read the HTML file
+    with open(file_path, 'r', encoding='utf-8') as file:
+        html_content = file.read()
+    # Parse HTML with BeautifulSoup
+    soup = BeautifulSoup(html_content, 'html.parser')
+    # Initialize lists to store annotations and their colors
+    annotations = []
+    # Find highlights for current color
+    highlights = soup.find_all('div', class_=f'kp-notebook-highlight-{color}')
+    # Extract text from each highlight
+    for highlight in highlights:
+        annotations.append(highlight.get_text().strip())
+    return annotations
+```
+
+
 ----

@@ -95,14 +95,14 @@ if [ -n "$FILE_EXT" ]; then
     for HTML_FILE in "$OEBPS_DIR"/*."$FILE_EXT"; do
         if [ -f "$HTML_FILE" ]; then
             BASENAME=$(basename "$HTML_FILE" ."$FILE_EXT")
-            "$PANDOC_CMD" "$HTML_FILE" -o "$OUTPUT_DIR/$BASENAME.md"
+            "$PANDOC_CMD" "$HTML_FILE" -t plain --strip-comments -o "$OUTPUT_DIR/$BASENAME.md"
         fi
     done
 fi
 
 # Convert the entire EPUB to a single TXT file
 FULL_TXT_FILE="$OUTPUT_DIR/$(basename "${EPUB_FILE%.epub}.txt")"
-"$PANDOC_CMD" "$EPUB_FILE" -o "$FULL_TXT_FILE"
+"$PANDOC_CMD" "$EPUB_FILE" -t plain --strip-comments -o "$FULL_TXT_FILE"
 
 # Cleanup
 rm -rf "$TMP_DIR"
