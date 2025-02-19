@@ -14,6 +14,12 @@ Kindle 书籍 (`awz3` 文件）是有 DRM 加密的（digital rights management�
 
 ![](images/awz3-download.png)
 
+如果需要批量下载自己购买过的书籍，可使用这个仓库里的软件：
+
+> https://github.com/yihong0618/Kindle_download_helper
+>
+> 该软件使用方法可以[参见这里](https://cloud.tencent.com/developer/article/2188172)。
+
 ### 2. mp3
 
 收费软件 [OpenAudible](https://openaudible.org/) 可以经过 Amazon 登录授权之后，将所有已购有声书下载到本地，并将其转换成 `mp3/m4a/m4b` 格式。
